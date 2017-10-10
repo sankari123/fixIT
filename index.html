@@ -22,12 +22,412 @@
   </style>
   
     <style type="text/css" media="screen">
+	.nav ul {
+          margin: 0;
+	  color:#cfddfa;
+          padding: 2%;
+          list-style: none;
+		  
+      }
+      .nav ul li {
+          margin: 0;
+	    color: white;  
+	      text-align: center; 
+		  
+      }
+      .nav ul li a {
+          padding: 15px 20px;
+          font-size: 13px;
+          font-weight: 100;
+          color: white;
+          text-decoration: none;
+          display: block;
+          border-bottom: 1px solid #3b6f8a;
+			   
+          -webkit-transition:  background 0.3s ease-in-out;
+          -moz-transition:  background 0.3s ease-in-out;
+          -ms-transition:  background 0.3s ease-in-out;
+          -o-transition:  background 0.3s ease-in-out;
+          transition:  background 0.3s ease-in-out;
+      } 	
+      .nav ul li:hover a {
+          background: #3b6f8a;
+      }
+	  
+	  
+		
+		body, html {
+    width: 100%; !important;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+.btn24
+	
+	{
+	width:100%;
+	height:100%;
+	background-color:#f2f2f2; border:block; padding: 2;  display:inline-block; font-weight: bold; color: black;
+	border-radius:6px;
+    -moz-border-radius:6px;
+	}
+.names { font-weight: bold; 
+		text-align:left;}
 
-    h1 { font-size: 20pt; color:Navy; }
-    h2 { font-size: 18pt; font-weight:bold; color: #DDD; }
+		.ven_cal
+		{
+		 width: 100vw;
+		font-size: 8pt;
+			background-color: #eeedf0;
+    border-color: #eeedf0;
+	  border-collapse:separate;
+ 
+/*    border-radius:6px;*/
+  /*  -moz-border-radius:6px;*/
+		}
+		
+		
+.ven
+{
+width: 100vw;
+text-align:center; 
+	
+/*			border-style: solid;*/
+  /*  border-color: black;*/
+		}
+		.ven1
+		{
+		 width: 100vw;
+		font-size: 11pt;
+			 
+	  border-collapse:separate;
+/*   padding-left:6px;*/
+/*    border-radius:6px;*/
+  /*  -moz-border-radius:6px;*/
+		}
+.ven2
+		{
+		 width: 100vw;
+			  
+			border-style: solid;
+			font-size: 9pt;
+ */   border-color: black;*/
+	  border-collapse:separate;
+   */ border:solid black 1px;*/
+    border-radius:6px;
+    -moz-border-radius:6px;
+		}	
+.hideDontTakeUpSpace
+        {
+            display:none;
+        }
 
-    body { background-color: #FFF; font: 16px Helvetica, Arial; color: #000; }
-    body { margin:0; padding:0; height:100%;}
+.btn1 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: white; text-decoration:underline;
+    display:inline-block;}
+.btn24
+	
+	{
+	width:100%;
+	height:100%;
+	background-color:#f2f2f2; border:block; padding: 2;  display:inline-block; font-weight: bold; color: black;
+	border-radius:6px;
+    -moz-border-radius:6px;
+	}
+		 	
+.btn34 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black; text-decoration:none;
+    display:inline-block;}		
+		
+.btnSrch {  display:inline-block;   text-decoration:none;}	
+.btn2 {  background-color: transparent; border:none; padding: 0; font-weight: bold; color: black;}
+button:focus {outline:none;} ::-moz-focus-inner {border:0;}
+#evtcal a:link {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* unvisited link */
+#evtcal a:visited {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}	/* visited link */
+#evtcal a:hover {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: underline;}	/* mouse over link */
+#evtcal a:active {font: normal 12pt "Arial", "Helvetica", "Sans Serif"; color: #004400; text-decoration: none;}		/* selected link */
+#lst_mnu
+	{
+		display:none;
+		text-align:center;
+		
+    width: 100vw;
+		
+	}
+#lst_mnu table {
+    max-width: 400px;
+    width: 100% !important;
+   border-color: black; 
+	font-family: "Sans Serif"; 
+	font-size: 9pt; 
+  }
+		
+.cat
+	{
+  max-width: 400px;
+    width: 100% !important;
+}
+	#evt_lst
+	{
+		display:none;
+		height: 100vh;
+		
+	}
+	.map_c
+	{
+		 width: 100vw;
+	}
+		
+		
+		 #middlecol {
+    border-right: 2px solid red;
+    width: 45%;
+  }
+
+  #middlecol table {
+    max-width: 400px;
+    width: 100% !important;
+  }
+#xPort
+	{
+		
+		max-width: 400px;
+                width: 100% !important;
+		display:none;
+		font: 15px arial, sans-serif;
+		background-color:  #f8f9fb;
+/*		font-family: "Sans Serif";*/
+	/*	font-size: 9pt;*/
+	/*	font: normal 12pt "Sans Serif";  */
+		}
+#xPort1
+	{
+		
+		display:none;
+		 
+		}
+ 
+/* The following is just coloring and faux images */
+
+.dl_btn {
+    width: 100% !important;
+     background:#f3f3f3;
+	display: none;
+}
+
+.dl_btn1 {
+   
+	display: none;
+}				
+		div.tab {
+    overflow: hidden;
+    border: 0px solid #ccc;
+    background-color:  #0c9db7;
+    width: 100% !important;
+    height:50px;
+	    
+	  
+}
+		
+ 
+/* Style the buttons inside the tab */
+div.tab button {
+    
+   background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 13px;
+    color: white;
+    border-left:solid white 0px;
+    border-right:solid white 0px;
+    border-top:solid white 0px;
+    border-bottom:solid #0c9db7; 3px;
+    background:#0c9db7;
+    width:33%; height:50px
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    /*  background-color: #ddd;*/
+    border-bottom:solid white 4px;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+     /*  background-color: #ccc;*/
+     border-bottom:solid white 4px;
+}
+
+/* Style the tab content */
+.tabcontent {
+     display: none;
+    padding: 3px 12px;
+ /*   border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.topright:hover {color: red;}
+
+#div_hr
+{
+	display	: none;
+		} 
+		
+.style1{
+/*border-top: 1px solid #8c8b8b;*/
+display	: none;
+}
+		
+		#calEvent
+		{
+		
+			width: 100vw;
+			
+			font-size: 9pt;
+     
+
+     display:none;
+		
+		}
+		 
+	
+		@media screen and (min-width: 100px) and (max-width: 199px)
+{
+    .button
+    {
+        width: 25px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 299px)
+{
+    .button
+    {
+        width: 50px;
+    }
+}
+		
+.left-div {
+		 border-radius: 25px;
+    float: left;
+    width: 50vw;
+    height: 20px;
+    background-color: linen;
+/*    margin-right: 8px;*/
+  
+}
+.right-div {
+ /*   margin-left: 108px;*/
+	 width: 50vw;
+	 border-radius: 25px;
+	background-color: green;
+    
+}
+.category
+		{
+		 
+      height: 100vh;
+	width: 100%;	
+   position: fixed;
+  left: 1%;
+ text-align: left;
+}
+#calendar
+		{
+		 
+		display	: none;
+   
+}		
+span {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 60px;  /* width of image */
+   font-size: 15px;
+}
+		
+		
+		.left1 {
+         width:50%;
+         border-right:1px solid #000000;
+        float:left;
+        height:70px;
+	padding-left:6px;
+    }
+   .right1 {
+       float:left;
+       padding-left:50%;
+       
+	   height:40px;
+   }
+   
+   .common1 {
+        width:100%;
+         float:left;
+         
+   }
+	.alt-color tr:nth-child(3n) {
+             background-color: #b4c5d3;
+		
+        }	
+	.ven1 tr:nth-child(2n) {
+      /*       background-color: silver;*/
+		
+        }
+/*	.ven1 tr:nth-child(odd) {
+    background: silver;
+}*/
+	.login
+{
+   display:none;
+   text-align:center;
+}	
+.backmenu
+{
+   display:none;
+    
+}
+		
+		.updFile
+		{
+		 
+		display	: none;
+   
+}
+		.csv
+{
+		 
+		display	: none;
+   
+}		
+.archive
+{
+		 
+display	: none;
+ 
+}
+.searchmenu
+{
+   display:none;
+    
+}		
+ 
+
+
+
+	    
+  
+
+    
 
     .ui-widget { color: gray;font-size: 0.8em; line-height:0.6em; }
     .ui-widget .ui-widget { font-size: 0.7em; }
@@ -45,7 +445,165 @@
 
     </style>
 	<script>
-	events="Bombay Chanakya,Crazy Mohan, Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
+$(document).ready(function() {
+                $('.nav').slideAndSwipe();
+		 
+            });
+	var active_page;
+  var optSel;
+var usrauth ;	
+usrauth='';
+		
+function init() {
+    	document.addEventListener("deviceready", onDeviceReady, false);
+	
+}
+		
+		
+function onDeviceReady(){
+	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	document.getElementById("dl_btn").style.display="none";
+	document.getElementById("dl_btn").style.visibility="false";
+	document.getElementById("defaultOpen").click();
+//	category();
+	checkConnection();
+	
+   document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music & Miscellany", "Yes,No");    }, false );
+	
+}
+function checkConnection() {
+     var networkState = navigator.connection.type;
+     if(navigator.connection.type == Connection.NONE) {        
+        connSel='N';
+	   //  alert(connSel);
+	     
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
+    }
+   else
+      {
+	    connSel='Y';
+	     // alert(connSel);
+	      
+	      if(usrauth=='y')
+	      {
+	         
+	      }
+	      else
+	      {
+	      ajaxFunction();
+	 changedate('return');
+	      }
+	// ajaxFunction();
+	 
+      }
+ 
+}
+	
+function RgotFS(fileSystem) {
+	//alert(fileSystem.root.fullPath);
+    //    window.rootFS = fileSystem.root;
+        fileSystem.root.getFile("events.txt", null, RgotFileEntry, fail);
+	
+    }	
+	
+
+function gotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
+
+function RgotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+
+		
+	
+	
+function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(WriteText, fail);
+    }	
+
+	
+function gotFile(file){
+      readDataUrl(file);
+        readAsText(file);
+    }
+
+
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+	
+	function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+	 //   alert(evt.target.result);
+	    document.getElementById('rest1').value=evt.target.result;	
+	   changedate('prevmo');
+	//	 ajaxFunction();
+        };
+        reader.readAsText(file);
+  }	
+	
+ function WriteText(writer) {
+      writer.onwriteend = function(evt){ // Fired when end write.
+        console.log("End write text in file");
+
+    };
+writer.write(ajaxResponse);
+}
+	
+    function fail(error) {
+	//alert(fileSystem.root.fullPath);
+      //  window.rootFS = fileSystem.root;
+        alert('Failed to load events...');
+    }
+function failU(error) {
+        alert('Failed to load file..');
+    }	
+	
+function getDaysInMonth(m, y) {
+    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
+}	
+
+	
+	
+	
+function onConfirmExit(button) {
+if(button==2){ //If User select a No, then return back;
+       	return; }
+else{
+   if (navigator.app) {
+     navigator.app.exitApp(); }
+   else if (navigator.device) {
+     navigator.device.exitApp(); } }	}
+	   
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+events="Bombay Chanakya,Crazy Mohan, Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
 var wordlist=new Array();
 var uniq=new Array();
 
@@ -137,8 +695,191 @@ for (var i = 0; i<events.length; i++) {
 
 	</script>
 </head>
-<body>
-    <div class='inputDiv'>
+<body style="background-color: transparent;" onload='init();'> 
+<nav class="nav">
+                    
+          <ul>
+		  <li> <a id="myLink" href="#" onclick="category();" class="ssm-toggle-nav">Home</a>
+		  <li> <a id="myLink" href="#" onclick="login();" class="ssm-toggle-nav">Login/Signup</a>
+      		<!--   <li> <a id="myLink" href="#" onclick="uploadSchedule();" class="ssm-toggle-nav">Upload Scehdule</a>-->
+ 		  
+		   <li> <a id="myLink" href="#" onclick="archive();" class="ssm-toggle-nav">Archive</a>
+              
+                  <li> <a id="myLink" href="#" onclick="rateApp();" class="ssm-toggle-nav">Rate MMM</a>
+          </ul>
+       
+        </nav>
+              <div id=main >
+            <table border=0 width='100%' cellpadding="0" cellspacing="0"  bgcolor=#0c9db7><tr height='70px'><td style='vertical-align: middle;' >&nbsp;
+         <a href="#" class="ssm-toggle-nav"  style='text-decoration: none;' title="open nav">&#9776;</a></td><td  align='center'><font size=3 color='#ffffff'><b>Madras Music & Miscellany</b></font></td><td><button id='artist' class='btn2' onclick='srchArtist();'><img src='search.png' style='border:none; outline: none; vertical-align:middle'></button>&nbsp;</td></tr></table>
+        </div>
+<div id='backmenu' class='backmenu'>
+	 
+	
+	      <table border=0 width='100%' bgcolor=#0c9db7><tr height='70px'><td style='vertical-align: top;'>&nbsp;
+ <font size=4 color='#ffffff'><button onclick="backSt();" style='text-decoration: none;' title="back">&#x003C;</button></font></td><td width=99% align='center'><b><font size=3 color='#ffffff'>Madras Music & Miscellany</font></b></td></tr></table> 
+		</div>
+        <!-- jQuery library (served from Google) -->
+         <div class="ssm-overlay ssm-toggle-nav"></div>
+
+	<div id='searchmenu' class='searchmenu'>
+	 
+	
+	   <!--   <table border=0 width='100%' bgcolor=#0c9db7><tr height='70px'><td style='vertical-align: top;'>&nbsp;
+           <font size=4 color='#ffffff'><b><a href="#" onclick="backSt();" style='text-decoration: none;color: black;' title="back">&#x003C;</a></b></font></td><td width=99% align='center'> <form action="jquery" id="form1">
+        <input type="text" id="input1"/>
+
+      </form><input id='reslt' style='color :blue;' ></td></tr></table> -->
+	 
+	 
+	
+     <table border=0 width='100%' bgcolor=#0c9db7><tr height='70px'><td style='vertical-align: top;'>&nbsp;
+           <font size=4 color='#ffffff'><b><a href="#" onclick="backSt();" style='text-decoration: none;color: black;' title="back">&#x003C;</a></b></font></td><td width=99% align='center'>  
+        <div class='inputDiv'><form action="jquery" id="form1">
+       <input type="text" id="input1"/>
+
+      </form>
+		<input id='reslt' style='color :blue;' >
+    </div>
+	     </td></tr></table>
+ <!--<div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
+    </div> -->
+
+	 
+		</div>
+	
+	
+   
+ <div id='mainMenu' class='mainMenu'>	
+	 
+<table border="0"   cellpadding="0" cellspacing="0" width="100%">
+	<tr height='25px'  bgcolor='#0c9db7'><td align=center>
+	<div class="tab">
+ 
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">Events</button>
+  <button class="tablinks" onclick="openCity(event, 'London')" id='cal'>Calendar</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')" id='venue'>Venue</button>
+		
+</div>
+		</td></tr></table>
+</div>
+<div id="London" class="tabcontent">
+<!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+   
+</div>
+
+<div id="Paris" class="tabcontent">
+<!--   <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+  
+</div>
+
+<div id="Tokyo" class="tabcontent">
+ <!--  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>-->
+ 
+</div>
+
+	
+	
+	
+	<div id='category' class='category'>
+         <!--                   <div class = "ui-widget">
+          
+         <input id = "automplete-1" placeholder="Artist" >
+      </div> -->
+		<!--<font size=1 face='arial'>Browse by Category</font><br><br>-->
+		<!-- <input type="text" autofocus="true" name="autofocus sample" placeholder="Search Artist" id="autocomplete-input"></input><br><br>-->
+	   <table width='100%' border=0 cellpadding=0 cellpadding=0 >
+		   <tr><td><button onclick='eventList(1);' class='btn2'><img src='concert.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Concerts</span></button></td><td width='7%'><button onclick='eventList(1);' class='btn2'><img src='arrow.png'  width=10px height=10px style="vertical-align:middle"></button><font color='white'>&nbsp;&nbsp;&nbsp;&nbsp;11</font></td></tr>
+		   <tr valign="top"><td colspan=2><hr size=1 color='#ececec'></td></tr>
+		    <tr><td ><button onclick='eventList(2);' class='btn2' ><img src='dance.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Dance</span></button></td><td width='7%'><button onclick='eventList(2);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
+		   <tr><td><button onclick='eventList(3);' class='btn2'><img src='drama.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span >Drama</span></button></td><td width='7%'><button onclick='eventList(3);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		   <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
+		    <tr><td><button onclick='eventList(4);' class='btn2' ><img src='lec-dem.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Lec-Dem</span></button></td><td width='7%'><button onclick='eventList(4);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
+		   <tr><td><button onclick='eventList(5);' class='btn2'><img src='harikatha.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Harikatha</span></button></td><td width='7%'><button onclick='eventList(5);' class='btn2' ><img src='arrow.png'  width=10px height=10px  style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		   <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
+		    <tr><td ><button onclick='eventList(6);' class='btn2' ><img src='meetup.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Meetup</span></button></td><td width='7%'><button onclick='eventList(6);' class='btn2' ><img src='arrow.png'  width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
+		   
+		</table>
+			
+	</div>
+	
+	<table id="evtcal" border="0" cellpadding="0" cellspacing="0" width="100%"><tr>
+			<td style="padding: 3px;" align="center" valign="top" width="314">
+				<div id="calendar"><!--  Dynamically Filled --></div>
+				
+			</td></tr></table>
+	<div id='lst_mnu' align='left'>	</div>
+	<!--<div id="previewImage">
+    </div>-->
+    <div id='archive'></div>  
+	<div id='calEvent'>
+			 
+		<div id='left1' class="left1"></div>
+		<div id='right1' class="right1"></div>
+		<div id='common1' class="common1"></div>
+   
+				
+	</div>
+
+	<div id='login' align='center' class='login'>
+		
+	 
+	   <table align='center' border=0 cellpadding=0 cellpadding=0  >
+		   <tr height='130px'> <td>Madras Music & Miscellany</td></tr>
+		   <tr > <td><input type="text" style='border: 0;  outline: 0;  background: transparent;  border-bottom: 1px solid black;width:100%;height:34px;padding:6px 12px;font-size:14px;' id="usrname" placeholder="Email ID" ></td></tr>	
+	 <tr > <td><input type="password" style='border: 0;  outline: 0;  background: transparent;  border-bottom: 1px solid black;width:100%;height:34px;padding:6px 12px;font-size:14px;' id="usrpwd" placeholder="*******" ></td></tr>
+		    <tr><td>&nbsp;</td></tr>
+		   <tr><td align=right> <a href="#" onclick='forgot_pass(); ' style='text-decoration: none;color: black;'><font size=1>Forgot Password?</font></a></td></tr>
+		   <tr><td>&nbsp;</td></tr>
+	<tr bgcolor='f4f4f4' height='60px'><td> <button id='display' class="btn34" onclick='ajaxCall();'>Login</button>	</td></tr>
+		   
+		</table>
+		 
+		
+	</div>
+
+	<div class="dl_btn" id='dl_btn' align='center'>
+    
+ <div style="float: left; font-size: 9pt; width: 33%;"> <button class='btn1'  onclick='calAdd();'><img src="cal1.png"></button>
+    <div style='font-size: 9pt;' >Calendar</div></div>
+ <div style="float: left; font-size: 9pt;width: 33%;"><button class='btn1'  onclick='printData();'><img src="pdf.png"></button>
+    <div style='font-size: 9pt;'>Download</div></div>
+ <div style="float: left; font-size: 9pt;width: 33%;"><button class='btn1'  onclick='share();'><img src="share1.png"></button>
+    <div style='font-size: 9pt;'>Share</div></div>
+ <br style="clear: left;" />
+</div>
+ 
+	<div id='xPort' >     </div>
+
+		<div id='dl_btn1'></div>
+	
+		 
+	
+			<div id='det' align='center' style="background-color:white">
+				 
+				<form id="eventform" name="eventform" action="#" method="get">
+					<textarea name="eventlist"  style="border: none" cols="40" rows="20" wrap="soft" readonly>					</textarea>
+				</form>
+			</div>
+	 
+ <textarea id="rest1" class="hideDontTakeUpSpace" rows=1 cols=40></textarea> 
+
+<div id='xPort1'>     </div>
+ <div id='csv' class='csv'>
+  
+	  
+      </div>
+
+ <textarea id="rest2" class="hideDontTakeUpSpace"  rows=1 cols=40 readonly></textarea> 
+</body>
+</html>
+
+<!--
+
+ <div class='inputDiv'>
       
       <form id="form1">
         <input type="text" id="input1"/>
@@ -146,8 +887,5 @@ for (var i = 0; i<events.length; i++) {
       </form>
     </div>
 
- <!--<div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
-    </div> -->
-<input id='reslt' style='color :blue;' >
-  </body>
-</html>
+ <div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
+    </div><input id='reslt' style='color :blue;' > -->
