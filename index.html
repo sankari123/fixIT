@@ -17,8 +17,12 @@
 <script class="jsbin" src="js/jquery-ui.min.js"></script>
  
 <style>
-   
- 
+  article, aside, figure, footer, header, hgroup, 
+  menu, nav, section { display: block; }
+  </style>
+  
+    <style type="text/css" media="screen">
+
     h1 { font-size: 20pt; color:Navy; }
     h2 { font-size: 18pt; font-weight:bold; color: #DDD; }
 
@@ -41,7 +45,7 @@
 
     </style>
 	<script>
-	events="Bombay Chanakya,Crazy Mohan, Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya";
+	events="Bombay Chanakya,Crazy Mohan, Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
 var wordlist=new Array();
 var uniq=new Array();
 
@@ -102,7 +106,7 @@ for (var i = 0; i<events.length; i++) {
               // The source option can also be a function that performs the search,
               // and calls a response function with the matched entries.
               source: function(req, responseFn) {
-                  addMessage("search on: '" + req.term + "'<br/>");
+                 // addMessage("search on: '" + req.term + "'<br/>");
                   var re = $.ui.autocomplete.escapeRegex(req.term);
 				  var matcher = new RegExp( "^" + re, "i" );
 				    
@@ -116,10 +120,10 @@ for (var i = 0; i<events.length; i++) {
 
               select: function(value, data){
                   if (typeof data == "undefined") {
-                      addMessage('You selected: ' + value + "<br/>");
+                  //    addMessage('You selected: ' + value + "<br/>");
 					  document.getElementById('reslt').value=data.item.value;
                   }else {
-                      addMessage('You selected: ' + data.item.value + "<br/>");
+                   //   addMessage('You selected: ' + data.item.value + "<br/>");
 					   document.getElementById('reslt').value=data.item.value;
                   }
               }
@@ -127,7 +131,7 @@ for (var i = 0; i<events.length; i++) {
       });
 
     function addMessage(msg){
-        $('#msgs').append(msg);
+     //   $('#msgs').append(msg);
     }
 
 
@@ -136,14 +140,14 @@ for (var i = 0; i<events.length; i++) {
 <body>
     <div class='inputDiv'>
       
-      <form action="jquery" id="form1">
+      <form id="form1">
         <input type="text" id="input1"/>
 
       </form>
     </div>
 
- <div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
-    </div> 
+ <!--<div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
+    </div> -->
 <input id='reslt' style='color :blue;' >
   </body>
 </html>
