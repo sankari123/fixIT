@@ -1653,11 +1653,11 @@ function calAdd()
   window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
   var calsuccess = function(message) {
   //  navigator.notification.alert("Event added successfully.");
-	 alert("Event added successfully.");
+	 alert(message);
   };
   var calerror = function(message) { 
    // navigator.notification.alert("Error occurred while adding the event.");
-	  alert("Error occured. Try again..");
+	  alert(message);
   };
 	 
 }	
