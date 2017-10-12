@@ -816,74 +816,6 @@ function onPrompt(results) {
 	
 	
 	
-function archive()
-{
-	var config = {
-    title: "Select a Month", 
-    items: [
-        { text: "January", value: "1" },
-        { text: "February", value: "2" },
-        { text: "March", value: "3" },
-        { text: "April", value: "4" },
-        { text: "May", value: "5" },
-        { text: "June", value: "6" },  
-	{ text: "July", value: "7" },
-	{ text: "August", value: "8" },
-        { text: "September", value: "9" },
-        { text: "October", value: "10" },
-        { text: "November", value: "11" },
-        { text: "December", value: "12" } 
-        
-    ],
-    selectedValue: "July",
-    doneButtonLabel: "Done",
-    cancelButtonLabel: "Cancel"
-};	
-
-// Show the picker
-window.plugins.listpicker.showPicker(config, 
-    function(item) { 
-   //   alert("You have selected " + item.text);
-	selMonth= item;
-	var url1 = "http://www.writeacademy.in/MMF/archiveTest.php"; 
-	doRequest(url1,selMonth);
- 
-    },
-    function() { 
-      //  alert("You have cancelled");
-    }
-);
-}
-
-function doRequest(url,monSel) {
-	//alert(monSel);
-	var params = "arcMon=" + monSel; 
-	var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
- 
-    if (this.readyState == 4) {
-	 
-      if(this.status == 200 || this.status == 0){
-  
-    document.getElementById('rest2').value= this.responseText;
-	     
-	      if(this.responseText.length!=0)
-		 {
-		//  document.getElementById("archive").innerHTML = this.responseText;
-	    procValArc(document.getElementById('rest2').value); 
-		 }
-	        else {
-    		 navigator.notification.alert( 'No archive found..!',   alertDismissed,  'Archive',   'OK'  );
-    		}
-	      
-    }
-	     
-    }
-  };
-  xhttp.open("POST", url, true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send(params);
-}
 
 
 function alertDismissed() {
@@ -913,7 +845,7 @@ function onDeviceReady(){
 	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
-	//document.getElementById("defaultOpen").click();
+	document.getElementById("defaultOpen").click();
 	checkConnection();
 	
    document.addEventListener("backbutton", function (e) {
