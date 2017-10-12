@@ -1022,7 +1022,7 @@ function procVal(pVar)
 	locArr=locArr.split('#');
 	events=[];
 	venue_arr=[];
-	artistArr=[];
+	artistArr=new Array();
 	for (var i = 0; i<locArr.length; i++) {
 		delimiter = ',';
 		start = 6;
@@ -1046,7 +1046,7 @@ function procVal(pVar)
 		//multiArr.push([latR[2],latR[0],latR[1],dist]);
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		venue_arr.push([venue]);
-		artistArr.push([art]);
+		artistArr.push(art);
 		//alert(events.length);
 		//write ajax response to text file
 		
