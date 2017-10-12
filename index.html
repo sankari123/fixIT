@@ -517,15 +517,34 @@ $(document).ready(function(){
 			 
 			 pop('searchmenu');
  
-			hide('main');
-			hide('backmenu');
-			hide('category');
-			hide('dl_btn');
-			hide('dl_btn1');
-			hide('mainMenu');
-			hide('xPort');
-			hide('xPort1');
-			hide('tab');
+			
+			 
+		document.getElementById('main').style.display = 'none';
+	 	document.getElementById('main').style.visibility="false";	
+		document.getElementById('mainMenu').style.display = 'none';
+	 	document.getElementById('mainMenu').style.visibility="false";	
+		document.getElementById('category').style.display = 'none';
+	 	document.getElementById('category').style.visibility="false";
+		document.getElementById('backMenu').style.display = 'none';
+	 	document.getElementById('backMenu').style.visibility="false";	
+
+		document.getElementById('dl_btn').style.display = 'none';
+	 	document.getElementById('dl_btn').style.visibility="false";	
+		document.getElementById('dl_btn1').style.display = 'none';
+	 	document.getElementById('dl_btn1').style.visibility="false";	
+
+
+		document.getElementById('xPort').style.display = 'none';
+	 	document.getElementById('xPort').style.visibility="false";	
+
+		document.getElementById('xPort1').style.display = 'none';
+	 	document.getElementById('xPort1').style.visibility="false";	
+
+		document.getElementById('tab').style.display = 'none';
+	 	document.getElementById('tab').style.visibility="false";	
+
+		document.getElementById('det').style.display = 'none';
+	 	document.getElementById('det').style.visibility="false";	
 			
 				 monkeyPatchAutocomplete();
 
