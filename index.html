@@ -472,17 +472,19 @@ var usrauth ;
 	var wordlist=new Array();
 	function prep()
 	{
-	events="Bombay Chanakya,Crazy Mohan,Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
+	eventsNew="Bombay Chanakya,Crazy Mohan,Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
 	// alert('in');
 
-var uniq=new Array();
+var uniqNew=new Array();
 
-events=events.split(',');
-for (var i = 0; i<events.length; i++) {
-  uniq.push(events[i]);
+eventsNew=eventsNew.split(',');
+for (var i = 0; i<eventsNew.length; i++) {
+  uniqNew.push(eventsNew[i]);
 }
- wordlist= remove_duplicates_safe(uniq);
- 
+		
+ wordlist= remove_duplicates_safe(uniqNew);
+wordlist.sort();
+	}
  function remove_duplicates_safe(arr) {
     var seen = {};
     var ret_arr = [];
@@ -494,8 +496,7 @@ for (var i = 0; i<events.length; i++) {
     }
     return ret_arr;
 }
-wordlist.sort();
-}
+ 
 
      
 
