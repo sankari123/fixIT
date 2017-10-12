@@ -1635,7 +1635,7 @@ function calAdd()
 	 
 	 
 	for (var i = 0; i <calEvt1.length-1; i++) {
-		alert(calEvt1[i]);
+		//alert(calEvt1[i]);
 	// Start date and time of the event
   var startDate = new Date(calEvt1[i]);
   // End date and time of the event 
@@ -1647,7 +1647,7 @@ function calAdd()
   // Description about the event 
   var notes = calEvtDetails1[i];
 
-
+	}
   
     window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
   var calsuccess = function(message) {
@@ -1657,7 +1657,7 @@ function calAdd()
   var calerror = function(message) { 
     navigator.notification.alert("Error occurred while adding the event.");
   };
-	}
+	 
 }	
 
 	
