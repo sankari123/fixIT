@@ -722,10 +722,11 @@ function ajaxCall() {
 	 //alert('in');
 	 x=document.getElementById('usrname').value;
 	 y=document.getElementById('usrpwd').value;
-	 
+	//  alert(x +'in');
 	 if(x!='' && y!='')
 	 {
 	x=x.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+
 	 if( !validateEmail(x)) 
 	 {
 	 var msg2='Invalid Email ID/Password';
@@ -737,7 +738,7 @@ function ajaxCall() {
 	 var params = "unam=" + x +"&pwd=" + y; 
 	 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-	  //alert(this.readyState);
+	//  alert(this.readyState);
     if (this.readyState == 4) {
 	 //   alert(this.status);
       if(this.status == 200 || this.status == 0){
@@ -752,10 +753,12 @@ function ajaxCall() {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
 	 }	
+	 
 	 }
 	 
 	 else
 	 {
+	//	 alert('wrong');
 	 navigator.notification.alert(  'Invalid Email ID/Password',   alertDismissed,  'Login',   'OK'  );
 	 }
 }
@@ -905,7 +908,7 @@ function myMap(position) {
         y = position.coords.longitude;
  }
 function onDeviceReady(){
-	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	document.getElementById("defaultOpen").click();
@@ -1208,9 +1211,9 @@ var floater = 0;
 	
 }
 function showevents(day,month,year,week,dayofweek) {
-	 $("#det").slideToggle("slow");
-	$("#dl_btn").slideToggle("slow");
-	$("#dl_btn1").slideToggle("slow");
+//	 $("#det").slideToggle("slow");
+//	$("#dl_btn").slideToggle("slow");
+//	$("#dl_btn1").slideToggle("slow");
 	
 
 	document.getElementById("det").style.display="block";
@@ -1219,7 +1222,7 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn1").style.visibility="true";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
-//	window.plugins.spinnerDialog.hide();		
+ 	//window.plugins.spinnerDialog.hide();		
 var theevent = "";
 var floater = 0;
 	 
@@ -1571,15 +1574,10 @@ $("#dl_btn").slideToggle("slow");
 	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 		
 		
-//	evt_lst+="<tr valign='top' height='100px'><td > "+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"<br>"+timeString+"</td><td>&nbsp;&nbsp;"+events[i][6]+"&nbsp;&nbsp;&nbsp;<b>"+events[i][8]+"</b>&nbsp;&nbsp;"+events[i][7]+"</td></tr>";
-	
-	//	evt_lst+="<tr valign='top'><td bordercolor='black'> &nbsp;&nbsp;"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+"</td><td rowspan=2>"+events[i][6]+"</td><td><b>"+events[i][8]+"</b></td></tr>";
-		
-	//	evt_lst+="<tr valign='top'><td bordercolor='white'>"+timeString+"</td><td bordercolor='white'>"+events[i][7]+"</td></tr>";
-			
+ 
 		
 	}
-	// table_string=evt_lst;
+	 
 	 calEvt = calEvt.replace('undefined','');
 	calEvtDetails = calEvtDetails.replace('undefined','');
  document.getElementById('xPort').innerHTML=ev_lst+"</table>" ;
