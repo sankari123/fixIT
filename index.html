@@ -1647,18 +1647,13 @@ function calAdd()
   var location = "Chennai";
   // Description about the event 
   var notes = calEvtDetails1[i];
+   var calsuccess = function(message) { alert("Event added ..."); };
+  var calerror = function(message) { alert("Error: " + message); };
 
 	}
   
   window.plugins.calendar.createEvent(title,location,notes,startDate,endDate,calsuccess,calerror)
-  var calsuccess = function(message) {
-  //  navigator.notification.alert("Event added successfully.");
-	 alert(message);
-  };
-  var calerror = function(message) { 
-   // navigator.notification.alert("Error occurred while adding the event.");
-	  alert(message);
-  };
+   
 	 
 }	
 
