@@ -17,7 +17,118 @@
 <script src="js/jquery.slideandswipe.min.js"></script>
  
 		<script>
+$(document).ready(function() {
+                $('.nav').slideAndSwipe();
+		 
+            });
 
+
+
+	var active_page;
+  var optSel;
+var usrauth ;	
+	usrauth='';	
+
+
+	var wordlist=new Array();
+	function prep()
+	{
+	eventsNew="Bombay Chanakya,Crazy Mohan,Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters, Trichur Brothers,Bombay Sisters";
+	// alert('in');
+
+var uniqNew=new Array();
+
+eventsNew=eventsNew.split(',');
+for (var i = 0; i<eventsNew.length; i++) {
+  uniqNew.push(events[i]);
+}
+ wordlist= remove_duplicates_safe(uniqNew);
+ wordlist.sort();
+	}
+
+ function remove_duplicates_safe(arr) {
+    var seen = {};
+    var ret_arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (!(arr[i] in seen)) {
+            ret_arr.push(arr[i]);
+            seen[arr[i]] = true;
+        }
+    }
+    return ret_arr;
+}
+
+ 
+
+     
+
+    function addMessage(msg){
+     //   $('#msgs').append(msg);
+    }
+
+$(document).ready(function(){
+		$("#artist").click(function(){
+		prep();
+                 alert(wordlist);
+				 document.getElementById("searchmenu").style.display="block";
+			document.getElementById("searchmenu").style.visibility="true";
+			 
+document.getElementById("main").style.visibility="false";
+document.getElementById("main").style.display="none";
+document.getElementById("backmenu").style.visibility="false";
+document.getElementById("backmenu").style.display="none";
+				 monkeyPatchAutocomplete();
+
+          $("#input1").autocomplete({
+              // The source option can be an array of terms.  In this case, if
+              // the typed characters appear in any position in a term, then the
+              // term is included in the autocomplete list.
+              // The source option can also be a function that performs the search,
+              // and calls a response function with the matched entries.
+              source: function(req, responseFn) {
+                 // addMessage("search on: '" + req.term + "'<br/>");
+                  var re = $.ui.autocomplete.escapeRegex(req.term);
+				  var matcher = new RegExp( "^" + re, "i" );
+				    
+                  var a = $.grep( wordlist, function(item,index){
+                      //addMessage("&nbsp;&nbsp;sniffing: '" + item + "'<br/>");
+                      return matcher.test(item);
+                  });
+                //  addMessage("Result: " + a.length + " items<br/>");
+                  responseFn( a );
+              },
+
+              select: function(value, data){
+                  if (typeof data == "undefined") {
+                  //    addMessage('You selected: ' + value + "<br/>");
+					  document.getElementById('reslt').value=data.item.value;
+                  }else {
+                   //   addMessage('You selected: ' + data.item.value + "<br/>");
+					   document.getElementById('reslt').value=data.item.value;
+                  }
+              }
+          });
+			});
+			
+});	
+
+function monkeyPatchAutocomplete() {
+
+          // Don't really need to save the old fn, 
+          // but I could chain if I wanted to
+          var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+          $.ui.autocomplete.prototype._renderItem = function( ul, item) {
+              var re = new RegExp("^" + this.term, "i") ;
+              var t = item.label.replace(re,"<span style='color:white;'>" + this.term + "</span>");
+              return $( "<li></li>" )
+                  .data( "item.autocomplete", item )
+                  .append( "<a>" + t + "</a>" )
+                  .appendTo( ul );
+          };
+      }
+
+			
 	function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
 	
@@ -27,7 +138,7 @@ function onDeviceReady(){
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	//document.getElementById("defaultOpen").click();
-//	checkConnection();
+      checkConnection();
 	
    document.addEventListener("backbutton", function (e) {
         e.preventDefault(); 
@@ -49,7 +160,440 @@ else{
      navigator.device.exitApp(); } }	}
 
  
+function checkConnection() {
+     var networkState = navigator.connection.type;
+     if(navigator.connection.type == Connection.NONE) {        
+        connSel='N';
+	   //  alert(connSel);
+	     
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
+    }
+   else
+      {
+	    connSel='Y';
+	     // alert(connSel);
+	      
+	      if(usrauth=='y')
+	      {
+	         
+	      }
+	      else
+	      {
+	      ajaxFunction();
+	 changedate('return');
+	      }
+	// ajaxFunction();
+	 
+      }
+ 
+}
 
+function RgotFS(fileSystem) {
+	//alert(fileSystem.root.fullPath);
+    //    window.rootFS = fileSystem.root;
+        fileSystem.root.getFile("events.txt", null, RgotFileEntry, fail);
+	
+    }	
+	
+
+function gotFS(fileSystem) {
+        fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
+
+function RgotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+
+		
+	
+	
+function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(WriteText, fail);
+    }	
+
+	
+function gotFile(file){
+      readDataUrl(file);
+        readAsText(file);
+    }
+
+
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+	
+	function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            console.log(evt.target.result);
+	 //   alert(evt.target.result);
+	    document.getElementById('rest1').value=evt.target.result;	
+	   changedate('prevmo');
+	//	 ajaxFunction();
+        };
+        reader.readAsText(file);
+  }	
+	
+ function WriteText(writer) {
+      writer.onwriteend = function(evt){ // Fired when end write.
+        console.log("End write text in file");
+
+    };
+writer.write(ajaxResponse);
+}
+	
+    function fail(error) {
+	//alert(fileSystem.root.fullPath);
+      //  window.rootFS = fileSystem.root;
+        alert('Failed to load events...');
+    }
+function failU(error) {
+        alert('Failed to load file..');
+    }	
+function getDaysInMonth(m, y) {
+    return m===2 ? y & 3 || !(y%25) && y & 15 ? 28 : 29 : 30 + (m+(m>>3)&1);
+}	
+var myimages=new Array()
+function preloadimages(){
+	for (i=0;i<preloadimages.arguments.length;i++){
+		myimages[i]=new Image();
+		myimages[i].src=preloadimages.arguments[i];
+	}
+	
+}
+/* The path of images to be preloaded inside parenthesis: (Extend list as desired.) */
+preloadimages("images/PrevYrOff40x40.png","images/PrevMoOff40x40.png","images/NextYrOff40x40.png","images/NextMoOff40x40.png");
+
+var thisDate = 1;							// Tracks current date being written in calendar
+var wordMonth = new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+var today = new Date();							// Date object to store the current date
+var todaysDay = today.getDay() + 1;					// Stores the current day number 1-7
+var todaysDate = today.getDate();					// Stores the current numeric date within the month
+var todaysMonth = today.getUTCMonth() + 1;				// Stores the current month 1-12
+var todaysYear = today.getFullYear();					// Stores the current year
+var monthNum = todaysMonth;						// Tracks the current month being displayed
+var yearNum = todaysYear;						// Tracks the current year being displayed
+var firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));	// Object Storing the first day of the current month
+var firstDay = firstDate.getUTCDay();					// Tracks the day number 1-7 of the first day of the current month
+var lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));	// Tracks the last date of the current month
+var numbDays = 0;
+var calendarString = "";
+var eastermonth = 0;
+var easterday = 0;
+var flg=1;
+function changedate(buttonpressed) {
+	ajaxFunction();
+	//alert('optsel'+optSel);	
+	if (buttonpressed == "return") { 
+		monthNum = todaysMonth;
+		yearNum = todaysYear;
+	} else if (buttonpressed == "prevyr") yearNum--;
+	else if (buttonpressed == "nextyr") yearNum++;
+	else if (buttonpressed == "prevmo") monthNum--;
+	else if (buttonpressed == "nextmo") monthNum++;
+	 
+	if (monthNum == 0) {
+		monthNum = 12;
+		yearNum--;
+	}
+	else if (monthNum == 13) {
+		monthNum = 1;
+		yearNum++
+	}
+	lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
+	numbDays = lastDate.getDate();
+	   
+	if(isNaN(parseFloat("numbDays")))
+	  {
+	  numbDays = getDaysInMonth(monthNum, yearNum);
+	  }
+	  else
+	  {
+	   lastDate = new Date(String(monthNum+1)+"/0/"+String(yearNum));
+	   numbDays = lastDate.getDate();
+	  }
+	  
+	firstDate = new Date(String(monthNum)+"/1/"+String(yearNum));
+	firstDay = firstDate.getDay() + 1;
+	
+	
+	createCalendar();
+	return;
+	
+		
+}
+function easter(year) {
+// feed in the year it returns the month and day of Easter using two GLOBAL variables: eastermonth and easterday
+var a = year % 19;
+var b = Math.floor(year/100);
+var c = year % 100;
+var d = Math.floor(b/4);
+var e = b % 4;
+var f = Math.floor((b+8) / 25);
+var g = Math.floor((b-f+1) / 3);
+var h = (19*a + b - d - g + 15) % 30;
+var i = Math.floor(c/4);
+var j = c % 4;
+var k = (32 + 2*e + 2*i - h - j) % 7;
+var m = Math.floor((a + 11*h + 22*k) / 451);
+var month = Math.floor((h + k - 7*m + 114) / 31);
+var day = ((h + k - 7*m +114) % 31) + 1;
+eastermonth = month;
+easterday = day;
+}
+function createCalendar() {
+	//window.plugins.spinnerDialog.hide();	
+	
+	
+	
+	
+	calendarString = '';
+	var daycounter = 0;
+	calendarString += '<table width="312" border="1" cellpadding="0" cellspacing="1">';
+	calendarString += '<tr>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevyr\')\"><img name=\"PrevYr\" src=\"images\/PrevYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Yr\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'prevmo\')\"><img name=\"PrevMo\" src=\"images\/PrevMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Prev Mo\"\/><\/a><\/td>';
+	calendarString += '<td bgcolor=\"#C8C896\" align=\"center\" valign=\"center\" width=\"128\" height=\"40\" colspan=\"3\"><b>' + wordMonth[monthNum-1] + '&nbsp;&nbsp;' + yearNum + '<\/b><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextmo\')\"><img name=\"NextMo\" src=\"images\/NextMoOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Mo\"\/><\/a><\/td>';
+	calendarString += '<td align=\"center\" valign=\"center\" width=\"40\" height=\"40\"><a href=\"#\" onClick=\"changedate(\'nextyr\')\"><img name=\"NextYr\" src=\"images\/NextYrOff40x40\.png\" width=\"40\" height=\"40\" border=\"0\" alt=\"Next Yr\"\/><\/a><\/td>';
+	calendarString += '<\/tr>';
+	calendarString += '<tr>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Sun<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Mon<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Tue<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Wed<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Thu<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Fri<\/td>';
+	calendarString += '<td bgcolor=\"#DDDDDD\" align=\"center\" valign=\"center\" width=\"40\" height=\"22\">Sat<\/td>';
+	calendarString += '<\/tr>';
+	thisDate == 1;
+	for (var i = 1; i <= 6; i++) {
+		calendarString += '<tr>';
+		for (var x = 1; x <= 7; x++) {
+			daycounter = (thisDate - firstDay)+1;
+			thisDate++;
+			if ((daycounter > numbDays) || (daycounter < 1)) {
+				calendarString += '<td align=\"center\" bgcolor=\"#888888\" height=\"30\" width=\"40\">&nbsp;<\/td>';
+			} else {
+				if (checkevents(daycounter,monthNum,yearNum,i,x) || ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum))){
+					if ((todaysDay == x) && (todaysDate == daycounter) && (todaysMonth == monthNum)) {
+						calendarString += '<td align=\"center\" bgcolor=\"#81ab4b\" height=\"30\" width=\"40\"><a href=\"javascript:showevents(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+					}
+ 					else	calendarString += '<td align=\"center\" bgcolor=\"#FFFFC8\" height=\"30\" width=\"40\"><a href=\"javascript:showevents(' + daycounter + ',' + monthNum + ',' + yearNum + ',' + i + ',' + x + ')\">' + daycounter + '<\/a><\/td>';
+				} else {
+					calendarString += '<td align=\"center\" bgcolor=\"#ce9452\" height=\"30\" width=\"40\">' + daycounter + '<\/td>';
+				}
+			}
+		}
+		calendarString += '<\/tr>';
+	}
+	var object=document.getElementById('calendar');
+	object.innerHTML= calendarString;
+	thisDate = 1;
+	
+}
+function checkevents(day,month,year,week,dayofweek) {
+
+var numevents = 0;
+var floater = 0;
+	for (var i = 0; i < events.length; i++) {
+		if (events[i][0] == "W") {
+			if ((events[i][2] == dayofweek)) numevents++;
+		}
+		else if (events[i][0] == "Y") {
+			if ((events[i][2] == day) && (events[i][1] == month)) numevents++;
+		}
+		else if (events[i][0] == "F") {
+			if ((events[i][1] == 3) && (events[i][2] == 0) && (events[i][3] == 0) ) {
+				easter(year);
+				if (easterday == day && eastermonth == month) numevents++;
+			} else {
+				floater = floatingholiday(year,events[i][1],events[i][2],events[i][3]);
+				if ((month == 5) && (events[i][1] == 5) && (events[i][2] == 4) && (events[i][3] == 2)) {
+					if ((floater + 7 <= 31) && (day == floater + 7)) {
+						numevents++;
+					} else if ((floater + 7 > 31) && (day == floater)) numevents++;
+				} else if ((events[i][1] == month) && (floater == day)) numevents++;
+			}
+		}
+		else if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
+			numevents++;
+		}
+	}
+	if (numevents == 0) {
+		return false;
+	} else {
+		return true;
+	}
+	
+}
+function showevents(day,month,year,week,dayofweek) {
+//	 $("#det").slideToggle("slow");
+//	$("#dl_btn").slideToggle("slow");
+//	$("#dl_btn1").slideToggle("slow");
+	
+
+	document.getElementById("det").style.display="block";
+	document.getElementById("det").style.visibility="true";
+	document.getElementById("dl_btn1").style.display="block";
+	document.getElementById("dl_btn1").style.visibility="true";
+	document.getElementById("dl_btn").style.display="block";
+	document.getElementById("dl_btn").style.visibility="true";
+ 	//window.plugins.spinnerDialog.hide();		
+var theevent = "";
+var floater = 0;
+	 
+	for (var i = 0; i < events.length; i++) {
+	
+	if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
+			active_page=2;
+			hours=String(events[i][4]);
+			var timeString = hours;
+			var H = +timeString.substr(0, 2);
+			var h = H % 12 || 12;
+			var ampm = H < 12 ? "AM" : "PM";
+			timeString = h + timeString.substr(2, 3) + " "+ampm;
+			 
+			theevent += "<br>&nbsp;&nbsp;Events of: " +day +'/'+ month + '/'+year + '&nbsp;&nbsp;    '+timeString+'<br>';
+			//theevent += 'Time: ' +  timeString + '\n';
+			theevent += '&nbsp;&nbsp;'+events[i][6];
+			theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
+			theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
+			theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
+			theevent += '<br><hr size=2 color=gray>';
+		//	document.forms.eventform.eventlist.value = theevent;
+			
+		//   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
+		  // theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
+		   //theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
+ 		
+		
+		
+		
+		}
+		//document.getElementById('dl_btn1').innerHTML=theevent;
+	}
+	if (theevent == "") 
+	{
+		document.getElementById("dl_btn").style.display="none";
+	document.getElementById("dl_btn").style.visibility="false";
+		theevent= 'No events to show...';
+	    //    document.forms.eventform.eventlist.value = 'No events to show.';
+		
+	}
+	 document.getElementById('dl_btn1').innerHTML=theevent;
+	 
+}
+	
+function floatingholiday(targetyr,targetmo,cardinaloccurrence,targetday) {
+var firstdate = new Date(String(targetmo)+"/1/"+String(targetyr));	// Object Storing the first day of the current month.
+var firstday = firstdate.getUTCDay();	// The first day (0-6) of the target month.
+var dayofmonth = 0;	// zero out our calendar day variable.
+	targetday = targetday - 1;
+	if (targetday >= firstday) {
+		cardinaloccurrence--;	// Subtract 1 from cardinal day.
+		dayofmonth = (cardinaloccurrence * 7) + ((targetday - firstday)+1);
+	} else {
+		dayofmonth = (cardinaloccurrence * 7) + ((targetday - firstday)+1);
+	}
+return dayofmonth;
+}
+var ajaxResponse;
+var arr_store;
+function ajaxFunction()
+{
+	//window.plugins.spinnerDialog.hide();
+	if(connSel=='Y')
+	{	
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
+	xhr.onload = function(){
+    	//console.log(xhr);
+		//alert(xhr.responseText);
+	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
+	document.getElementById('rest1').value=xhr.responseText;
+	ajaxResponse=xhr.responseText;
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	procVal(ajaxResponse);
+	};
+	xhr.send();
+	}
+	else
+	{
+	//	alert('no conn');
+	//	alert(document.getElementById('rest1').value);
+	procVal(document.getElementById('rest1').value);
+	}
+//	window.plugins.spinnerDialog.hide();
+}
+	function alertDismissed1()
+	{
+	navigator.device.exitApp();
+		//navigator.app.exitApp();
+	}
+	
+		
+var latR;
+var events = new Array();
+var venue_arr = new Array();
+	var artist=[];
+function procVal(pVar)
+{
+//multiArr=[];
+	//alert('Ajax Resp'+pVar);
+	locArr = pVar;
+	//document.getElementById('rest1').value=pVar;
+	document.getElementById('rest1').value=locArr;
+	locArr = locArr.substring(0, locArr.length-1 );
+	locArr=locArr.split('#');
+	events=[];
+	venue_arr=[];
+	for (var i = 0; i<locArr.length; i++) {
+		delimiter = ',';
+		start = 6;
+		var result = locArr[i].split(delimiter, start+1).join(delimiter);
+		//document.getElementById('rest1').value=result;
+		latR=result.split(',');
+		document.getElementById('rest1').value+=result;
+		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
+		pnam=String(latR[0]);
+		venue=String(latR[1]);
+		venue=venue.replace(/\s/g, ' ');
+		art=String(latR[2]);
+		Pdeta=String(latR[3]);
+		Pdeta=Pdeta.replace('^','\'');
+		pTim=String(latR[5]);
+		pLatLong=String(latR[6]);
+		var dt = new Date(latR[4]);
+		var eDat= dt.getDate();
+		eMon=dt.getMonth()+1;
+		eYr=dt.getFullYear();
+		//multiArr.push([latR[2],latR[0],latR[1],dist]);
+		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
+		venue_arr.push([venue]);
+		artist.push([art]);
+		//artist.push(Pdeta);
+		//alert(events.length);
+		//write ajax response to text file
+		
+		//break;
+		}
+	
+	//testing();
+	uniq = remove_duplicates_safe(venue_arr);
+//	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
+ alert(venue_arr);
+}
+			
+			
+			
 	
 	
 	</script>
