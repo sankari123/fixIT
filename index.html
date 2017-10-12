@@ -572,10 +572,11 @@ function init() {
 
  
 function onDeviceReady(){
-	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	//document.getElementById("defaultOpen").click();
+	document.getElementById("defaultOpen").click();
 	checkConnection();
 	
    document.addEventListener("backbutton", function (e) {
@@ -949,7 +950,7 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	window.plugins.spinnerDialog.hide();
+	//window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
@@ -1162,7 +1163,7 @@ function backSt()
 		document.getElementById("backmenu").style.visibility="false";
 		document.getElementById("defaultOpen").click();
 }
-document.getElementById("defaultOpen").click();
+
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -1419,7 +1420,7 @@ function alertDismissed() {
 	
 function calClick()
 	{
-		alert('optsel'+optSel);
+		//alert('optsel'+optSel);
 		optSel=2;
 		active_page=1;
 		// $("#calendar").slideToggle("slow");
@@ -1690,6 +1691,100 @@ function alertDismissed() {
             // do
 			}	
 
+function procValArc(pVar)
+{
+//multiArr=[];
+	//alert('Ajax Resp'+pVar);
+	locArr = pVar;
+	 
+	locArr = locArr.substring(0, locArr.length-1 );
+	locArr=locArr.split('#');
+	events1=[];
+	 
+	for (var i = 0; i<locArr.length; i++) {
+		delimiter = ',';
+		start = 6;
+		var result1 = locArr[i].split(delimiter, start+1).join(delimiter);
+	 
+		latR=result1.split(',');
+		 
+		pnam=String(latR[0]);
+		venue=String(latR[1]);
+		venue=venue.replace(/\s/g, ' ');
+		art=String(latR[2]);
+		Pdeta=String(latR[3]);
+		Pdeta=Pdeta.replace('^','\'');
+		pTim=String(latR[5]);
+	//	pLatLong=String(latR[6]);
+		var dt2 = new Date(latR[4]);
+		var eDat1= dt2.getDate();
+		eMon=dt2.getMonth()+1;
+		eYr=dt2.getFullYear();
+		 
+		events1.push(["",String(eMon),String(eDat1),String(eYr),pTim,venue,pnam,Pdeta,art]);
+		 
+		 
+		}
+//	 events1 = events1.sort(function(a,b) {
+  //    return a[1] - b[1];
+//    });
+	
+	
+//	events1=events1.sort(function(b,a) {
+//  return b[1] - a[1] || a[3] - b[3];
+//});
+	
+	
+	 
+	//alert('len '+events1.length);
+	displayArchive();
+}	
+
+function displayArchive()
+{
+ 
+document.getElementById("backmenu").style.display="block";
+document.getElementById("backmenu").style.visibility="true";
+document.getElementById("main").style.visibility="false";
+document.getElementById("main").style.display="none";
+document.getElementById("mainMenu").style.visibility="false";
+document.getElementById("mainMenu").style.display="none";
+document.getElementById("calendar").style.display="none";
+document.getElementById("calendar").style.visibility="false"; 
+document.getElementById("archive").style.visibility="true";
+document.getElementById("archive").style.display="block";
+document.getElementById("xPort").style.display="none";
+document.getElementById("xPort").style.visibility="false";
+document.getElementById("lst_mnu").style.display="none";
+document.getElementById("lst_mnu").style.visibility="false";
+document.getElementById("category").style.display="none";
+document.getElementById("category").style.visibility="false";
+ 	
+ 
+		//alert('in');
+prevyr='';	
+		
+		
+		
+	var pdfTxt="<table border=1 width='100%' cellpadding=0 cellspacing=0 bgcolor='#fafbfc' style='font-size: 11px'><tr height='50px'><td colspan=4 align='center'>Archive </td></tr>";
+	pdfTxt+="<tr><td>Date</td><td>Venue</td><td>Program</td><td>Artist</td></tr>";
+	for (var i = 0; i < events1.length; i++) {
+			
+		if(events1[i][3]!=prevyr  && i!=0)	
+	       {
+			pdfTxt+="<tr height='10px' bgcolor='#fafbfc'><td colspan=4>&nbsp;</td></tr>";
+		}	
+		pdfTxt+="<tr><td>"+events1[i][2]+"/"+events1[i][1]+"/"+events1[i][3].substring(2, 4)+"</td><td>"+events1[i][5]+"</td><td>"+events1[i][6]+"</td><td>"+events1[i][8]+"<tr>";
+		
+		prevyr=events1[i][3];	
+		
+	}
+	
+ 
+		
+	  document.getElementById('archive').innerHTML =pdfTxt+"</table>";
+// document.getElementById('archive').innerHTML ='iiiiiiisdfsdfsdfsdf';
+}	
 	</script>
 </head>
  
