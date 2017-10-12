@@ -804,7 +804,147 @@ im_htm+="<tr height='120px'> <td style='width: 100px; height: 50px; border: 0px 
 	
 document.getElementById('lst_mnu').innerHTML=im_htm+"</table>" ;
 	
-	}	
+	}
+function login()
+{
+//alert('in');
+ 
+	//alert('in loop');
+	document.getElementById("backmenu").style.display="block";
+	document.getElementById("backmenu").style.visibility="true";
+	document.getElementById("main").style.visibility="false";
+	document.getElementById("main").style.display="none";
+	document.getElementById("mainMenu").style.visibility="false";
+	document.getElementById("mainMenu").style.display="none";
+document.getElementById("calendar").style.display="none";
+document.getElementById("calendar").style.visibility="false"; 
+document.getElementById("login").style.visibility="true";
+document.getElementById("login").style.display="block";
+document.getElementById("archive").style.visibility="false";
+document.getElementById("archive").style.display="none";
+	
+document.getElementById("det").style.display="none";
+document.getElementById("det").style.visibility="false";
+document.getElementById("lst_mnu").style.display="none";
+document.getElementById("lst_mnu").style.visibility="false";
+document.getElementById("dl_btn").style.display="none";
+document.getElementById("dl_btn").style.visibility="false";
+document.getElementById("dl_btn1").style.display="none";
+document.getElementById("dl_btn1").style.visibility="false";
+document.getElementById("category").style.display="none";
+document.getElementById("category").style.visibility="false";
+document.getElementById("xPort").style.display="none";
+document.getElementById("xPort").style.visibility="false";
+document.getElementById("xPort1").style.display="none";
+document.getElementById("xPort1").style.visibility="false";
+document.getElementById("tab").style.display="none";
+document.getElementById("tab").style.visibility="false";
+	}
+function backSt() 
+	{
+		backbtn=1;
+		document.getElementById("login").style.visibility="false";
+		document.getElementById("login").style.display="none";
+		document.getElementById("category").style.display="block";
+		document.getElementById("category").style.visibility="true";
+		document.getElementById("main").style.display="block";
+		document.getElementById("main").style.visibility="true";
+		 document.getElementById("mainMenu").style.display="block";
+		document.getElementById("mainMenu").style.visibility="true"; 
+		document.getElementById("backmenu").style.display="none";
+		document.getElementById("backmenu").style.visibility="false";
+		document.getElementById("defaultOpen").click();
+	}
+function ajaxCall() {
+	 
+	 //alert('in');
+	 x=document.getElementById('usrname').value;
+	 y=document.getElementById('usrpwd').value;
+	//  alert(x +'in');
+	 if(x!='' && y!='')
+	 {
+	x=x.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+
+	 if( !validateEmail(x)) 
+	 {
+	 var msg2='Invalid Email ID/Password';
+	 navigator.notification.alert(  msg2,   alertDismissed,  'Login',   'Done'  );
+      
+	 }
+	 else
+	 {
+	 var params = "unam=" + x +"&pwd=" + y; 
+	 var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+	//  alert(this.readyState);
+    if (this.readyState == 4) {
+	 //   alert(this.status);
+      if(this.status == 200 || this.status == 0){
+   //   document.getElementById("responsecontainer").innerHTML = this.responseText;
+	    //  alert(this.responseText);
+	      var msg1="Welcome to Madras Music & Miscellany ...! You will receive periodic notifications.  Please check your email...";
+	       navigator.notification.alert(  msg1,   alertDismissed,  'Login',   'OK'  );
+    }
+    }
+  };
+  xhttp.open("POST", "http://www.writeacademy.in/MMF/authUsr.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
+	 }	
+	 
+	 }
+	 
+	 else
+	 {
+	//	 alert('wrong');
+	 navigator.notification.alert(  'Invalid Email ID/Password',   alertDismissed,  'Login',   'OK'  );
+	 }
+}
+
+function validateEmail($email) {
+  var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  return emailReg.test( $email );
+} 
+	
+function forgot_pass()
+	
+	{
+//	alert('in'); 
+	navigator.notification.prompt(
+            'Enter mail ID',  // message
+            onPrompt,                  // callback to invoke
+            'Forgot Password',            // title
+            ['Ok','Cancel']              // buttonLabels
+        );
+	}
+	
+function onPrompt(results) {
+  //alert( results.input1);
+	if(results.input1!='')
+	{
+	var emailID=results.input1.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+	 if( !validateEmail(emailID)) 
+	 { 
+	 var msg2='Invalid Email ID';
+	 navigator.notification.alert(  msg2,   alertDismissed,  'Forgot Password',   'OK'  );
+      
+	 }
+	else
+	{
+	 var url1 = "http://www.writeacademy.in/MMF/forgot_pass-mmf.php"; 
+	  ajaxCallFn(url1,emailID); 
+
+		
+	}
+      
+	}
+	else
+	{
+	var msg2='Invalid Email ID';
+	 navigator.notification.alert(  msg2,   alertDismissed,  'Forgot Password',   'OK'  );
+      
+	 }
+ }	
 	</script>
 	
 	
