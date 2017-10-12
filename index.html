@@ -37,10 +37,20 @@
          width:270
          min-height: 100%;
       /*   border: Navy 1px dotted;*/
-         margin: 14px;
+         margin: 4px;
          padding: 0px;
-	 color: gray;
-		    
+	 
+	z-index: 999;
+	 
+	 
+				top: 0;
+				left: 0;
+		 
+				position: absolute;				
+				background-color: #cccccc;
+				color: #aaaaaa;
+				opacity: .4;
+				filter: alpha(opacity = 50);	    
     }
 
 
@@ -500,18 +510,31 @@ for (var i = 0; i<eventsNew.length; i++) {
     function addMessage(msg){
      //   $('#msgs').append(msg);
     }
-
+function pop(div) {
+document.getElementById(div).style.display = 'block';
+document.getElementById(div).style.visibility="true";	
+}
+function hide(div) {
+document.getElementById(div).style.display = 'none';
+document.getElementById(div).style.visibility="false";	
+}
 $(document).ready(function(){
 		$("#artist").click(function(){
 		prep();
                  alert(wordlist);
-				 document.getElementById("searchmenu").style.display="block";
-			document.getElementById("searchmenu").style.visibility="true";
 			 
-document.getElementById("main").style.visibility="false";
-document.getElementById("main").style.display="none";
-document.getElementById("backmenu").style.visibility="false";
-document.getElementById("backmenu").style.display="none";
+			 pop('searchmenu');
+ 
+			hide('main');
+			hide('backmenu');
+			hide('category');
+			hide('dl_btn');
+			hide('dl_btn1');
+			hide('mainMenu');
+			hide('xPort');
+			hide('xPort1');
+			hide('tab');
+			
 				 monkeyPatchAutocomplete();
 
           $("#input1").autocomplete({
