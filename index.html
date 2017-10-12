@@ -15,23 +15,48 @@
 <script src = "js/jquery-ui.js"></script>
 <script src="js/jquery.touchSwipe.min.js"></script>
 <script src="js/jquery.slideandswipe.min.js"></script>
+ 
+		<script>
+
+	function init() {
+    	document.addEventListener("deviceready", onDeviceReady, false);
+	
+}
+function onDeviceReady(){
+	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	document.getElementById("dl_btn").style.display="none";
+	document.getElementById("dl_btn").style.visibility="false";
+	//document.getElementById("defaultOpen").click();
+//	checkConnection();
+	
+   document.addEventListener("backbutton", function (e) {
+        e.preventDefault(); 
+	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music & Miscellany", "Yes,No");    }, false );
+	
+}
+
   
 
-<meta charset=utf-8 />
-<title>JS Bin</title>
-<!--[if IE]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
 
-  
+		
+function onConfirmExit(button) {
+if(button==2){ //If User select a No, then return back;
+       	return; }
+else{
+   if (navigator.app) {
+     navigator.app.exitApp(); }
+   else if (navigator.device) {
+     navigator.device.exitApp(); } }	}
+
+ 
+
+	
+	
+	</script>
+	
+	
     <style type="text/css" media="screen">
-
-    h1 { font-size: 20pt; color:Navy; }
-    h2 { font-size: 18pt; font-weight:bold; color: #DDD; }
-
-    body { background-color: #FFF; font: 16px Helvetica, Arial; color: #000; }
-    body { margin:0; padding:0; height:100%;}
-
+     
     .ui-widget { color: gray;font-size: 0.8em; line-height:0.6em; }
     .ui-widget .ui-widget { font-size: 0.7em; }
 
@@ -46,8 +71,6 @@
 		 color: gray;
 		    
     }
-
-
 
 	.nav ul {
           margin: 0;
@@ -454,222 +477,7 @@ display	: none;
 }	
 
     </style>
-	<script>
 
-	function init() {
-    	document.addEventListener("deviceready", onDeviceReady, false);
-	
-}
-function onDeviceReady(){
-	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
-	document.getElementById("dl_btn").style.display="none";
-	document.getElementById("dl_btn").style.visibility="false";
-	//document.getElementById("defaultOpen").click();
-	checkConnection();
-	
-   document.addEventListener("backbutton", function (e) {
-        e.preventDefault(); 
-	navigator.notification.confirm("Do you want to exit MMF?", onConfirmExit, "Madras Music & Miscellany", "Yes,No");    }, false );
-	
-}
-function checkConnection() {
-     var networkState = navigator.connection.type;
-     if(navigator.connection.type == Connection.NONE) {        
-        connSel='N';
-	   //  alert(connSel);
-	     
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, RgotFS, fail);
-    }
-   else
-      {
-	    connSel='Y';
-	     // alert(connSel);
-	      
-	      if(usrauth=='y')
-	      {
-	         
-	      }
-	      else
-	      {
-	      ajaxFunction();
-	 changedate('return');
-	      }
-	// ajaxFunction();
-	 
-      }
- 
-}
-
-function RgotFS(fileSystem) {
-	//alert(fileSystem.root.fullPath);
-    //    window.rootFS = fileSystem.root;
-        fileSystem.root.getFile("events.txt", null, RgotFileEntry, fail);
-	
-    }	
-	
-
-function gotFS(fileSystem) {
-        fileSystem.root.getFile("events.txt", {create: true, exclusive: false}, gotFileEntry, fail);
-}
-
-function RgotFileEntry(fileEntry) {
-        fileEntry.file(gotFile, fail);
-    }
-
-		
-	
-	
-function gotFileEntry(fileEntry) {
-        fileEntry.createWriter(WriteText, fail);
-    }	
-
-	
-function gotFile(file){
-      readDataUrl(file);
-        readAsText(file);
-    }
-
-
-
-    function readDataUrl(file) {
-        var reader = new FileReader();
-        reader.onloadend = function(evt) {
-            console.log("Read as data URL");
-            console.log(evt.target.result);
-        };
-        reader.readAsDataURL(file);
-    }
-	
-	function readAsText(file) {
-        var reader = new FileReader();
-        reader.onloadend = function(evt) {
-            console.log("Read as text");
-            console.log(evt.target.result);
-	 //   alert(evt.target.result);
-	    document.getElementById('rest1').value=evt.target.result;	
-	   changedate('prevmo');
-	//	 ajaxFunction();
-        };
-        reader.readAsText(file);
-  }	
-	
- function WriteText(writer) {
-      writer.onwriteend = function(evt){ // Fired when end write.
-        console.log("End write text in file");
-
-    };
-writer.write(ajaxResponse);
-}
-	
-    function fail(error) {
-	//alert(fileSystem.root.fullPath);
-      //  window.rootFS = fileSystem.root;
-        alert('Failed to load events...');
-    }
-function failU(error) {
-        alert('Failed to load file..');
-    }
-
-
-		
-function onConfirmExit(button) {
-if(button==2){ //If User select a No, then return back;
-       	return; }
-else{
-   if (navigator.app) {
-     navigator.app.exitApp(); }
-   else if (navigator.device) {
-     navigator.device.exitApp(); } }	}
-
-function ajaxFunction()
-{
-	//window.plugins.spinnerDialog.hide();
-	if(connSel=='Y')
-	{	
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
-	xhr.onload = function(){
-    	//console.log(xhr);
-		//alert(xhr.responseText);
-	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
-	document.getElementById('rest1').value=xhr.responseText;
-	ajaxResponse=xhr.responseText;
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-	procVal(ajaxResponse);
-	};
-	xhr.send();
-	}
-	else
-	{
-	//	alert('no conn');
-	//	alert(document.getElementById('rest1').value);
-	procVal(document.getElementById('rest1').value);
-	}
-//	window.plugins.spinnerDialog.hide();
-}
-	function alertDismissed1()
-	{
-	navigator.device.exitApp();
-		//navigator.app.exitApp();
-	}
-	
-		
-var latR;
-var events = new Array();
-var venue_arr = new Array();
-	var artist=[];
-function procVal(pVar)
-{
-//multiArr=[];
-	//alert('Ajax Resp'+pVar);
-	locArr = pVar;
-	//document.getElementById('rest1').value=pVar;
-	document.getElementById('rest1').value=locArr;
-	locArr = locArr.substring(0, locArr.length-1 );
-	locArr=locArr.split('#');
-	events=[];
-	venue_arr=[];
-	for (var i = 0; i<locArr.length; i++) {
-		delimiter = ',';
-		start = 6;
-		var result = locArr[i].split(delimiter, start+1).join(delimiter);
-		//document.getElementById('rest1').value=result;
-		latR=result.split(',');
-		document.getElementById('rest1').value+=result;
-		//multiArr.push([latR[0],latR[1],latR[2],latR[3],latR[4],latR[5]]);
-		pnam=String(latR[0]);
-		venue=String(latR[1]);
-		venue=venue.replace(/\s/g, ' ');
-		art=String(latR[2]);
-		Pdeta=String(latR[3]);
-		Pdeta=Pdeta.replace('^','\'');
-		pTim=String(latR[5]);
-		pLatLong=String(latR[6]);
-		var dt = new Date(latR[4]);
-		var eDat= dt.getDate();
-		eMon=dt.getMonth()+1;
-		eYr=dt.getFullYear();
-		//multiArr.push([latR[2],latR[0],latR[1],dist]);
-		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
-		venue_arr.push([venue]);
-		artist.push([art]);
-		//artist.push(Pdeta);
-		//alert(events.length);
-		//write ajax response to text file
-		
-		//break;
-		}
-	
-	//testing();
-	uniq = remove_duplicates_safe(venue_arr);
-//	uniq = uniq.map(function(e) {  var result = {};    result['text'] =e[0];  result['value'] =e[0];   return result;});
- alert(venue_arr);
-}
-	
-
-	
-	
-	</script>
 </head>
  
 
