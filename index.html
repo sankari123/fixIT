@@ -446,7 +446,7 @@ function showevents(day,month,year,week,dayofweek) {
 	document.getElementById("dl_btn1").style.visibility="true";
 	document.getElementById("dl_btn").style.display="block";
 	document.getElementById("dl_btn").style.visibility="true";
- 	window.plugins.spinnerDialog.hide();		
+ 	//window.plugins.spinnerDialog.hide();		
 var theevent = "";
 var floater = 0;
 	 
@@ -509,7 +509,7 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	//window.plugins.spinnerDialog.hide();
+	window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
@@ -693,8 +693,118 @@ document.getElementById("defaultOpen").click();
 		
 	}			
 			
+function calClick()
+	{
+		alert('optsel'+optSel);
+		optSel=2;
+		active_page=1;
+		// $("#calendar").slideToggle("slow");
+		//	  $('#calendar').toggle('slide','right',500);	 
+		document.getElementById("calendar").style.display="block";
+		document.getElementById("calendar").style.visibility="true";
+		document.getElementById("category").style.display="none";
+		document.getElementById("category").style.visibility="false";
+		document.getElementById("login").style.display="none";
+		document.getElementById("login").style.visibility="false";
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+		document.getElementById("lst_mnu").style.display="none";
+		document.getElementById("lst_mnu").style.visibility="false";
+		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
+		document.getElementById("route_canvas").style.display="none";
+		document.getElementById("route_canvas").style.visibility="false"
+		document.getElementById("panel").style.display="none";
+		document.getElementById("panel").style.visibility="false";
+		document.getElementById("archive").style.visibility="false";
+		document.getElementById("archive").style.display="none";
+	
+		checkConnection();
+	}
 	
 	
+	function venueFilter()
+	{
+		active_page=1;
+		var j;
+		checkConnection();
+		// $("#lst_mnu").slideToggle("slow");
+			//  $('#lst_mnu').toggle('slide','right',500);
+		 
+		
+		document.getElementById("lst_mnu").style.display="block";
+		document.getElementById("lst_mnu").style.visibility="true";
+		getLoc();
+		 
+		
+		document.getElementById("calendar").style.display="none";
+		document.getElementById("calendar").style.visibility="false";
+		document.getElementById("category").style.display="none";
+		document.getElementById("category").style.visibility="false";
+		document.getElementById("det").style.display="none";
+		document.getElementById("det").style.visibility="false";
+		
+		document.getElementById("xPort1").style.display="none";
+		document.getElementById("xPort1").style.visibility="false";
+		
+		
+		
+		document.getElementById("xPort").style.display="none";
+		document.getElementById("xPort").style.visibility="false";
+		
+		document.getElementById("dl_btn").style.display="none";
+		document.getElementById("dl_btn").style.visibility="false";
+		document.getElementById("dl_btn1").style.display="none";
+		document.getElementById("dl_btn1").style.visibility="false";
+		//alert('in');
+		
+        if(uniq.length % 2==0)
+{
+ 
+}
+else
+{
+uniq.push(["d"]);
+ 
+}
+		//var im_htm='';
+var im_htm="<table border='0'  class='ven' cellpadding='0' cellspacing='0'>";
+	 
+	for (var i = 0, len = uniq.length; i < len; i++) {
+	
+	j=i+1;
+		
+	
+		ch_uni=String(uniq[i]);
+		 
+		ch_uni=ch_uni.replace(/\s/g, '_');
+		 
+              ch_uni1=String(uniq[j]);
+		ch_uni1=ch_uni1.replace(/\s/g, '_');
+
+ 
+if(uniq[j]=='d')
+{
+	 
+	im_htm+="<tr height='120px'> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni +">"+uniq[i]+"</button></td><td>&nbsp;</td> </tr>";
+ }
+		else
+		{
+ 
+			
+im_htm+="<tr height='120px'> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni +">"+uniq[i]+"</button></td> <td style='width: 100px; height: 50px; border: 0px solid gray;'><button onclick='ven_det(this.value);' class='btn24' value="+ch_uni1+">"+uniq[j]+"</button></td> </tr>";
+}
+	 i=j;
+	
+	}
+	
+document.getElementById('lst_mnu').innerHTML=im_htm+"</table>" ;
+	
+	}	
 	</script>
 	
 	
