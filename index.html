@@ -4,7 +4,6 @@
 <title>Madras Music & Miscellany</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        	
 <script type="text/javascript" src="cordova.js"></script>
 <link class="jsbin" href="css/jquery-ui.css" rel="stylesheet" type="text/css"></link>
 <link rel="stylesheet" href="css/styles.css">
@@ -601,8 +600,17 @@ document.getElementById("tab").style.visibility="false";
 	}
 function backSt() 
 	{
-		alert('in');
 		backbtn=1;
+		document.getElementById("login").style.visibility="false";
+		document.getElementById("login").style.display="none";
+		document.getElementById("category").style.display="block";
+		document.getElementById("category").style.visibility="true";
+		document.getElementById("main").style.display="block";
+		document.getElementById("main").style.visibility="true";
+		 document.getElementById("mainMenu").style.display="block";
+		document.getElementById("mainMenu").style.visibility="true"; 
+		document.getElementById("backmenu").style.display="none";
+		document.getElementById("backmenu").style.visibility="false";
 		document.getElementById("defaultOpen").click();
 	}
 document.getElementById("defaultOpen").click();
