@@ -512,14 +512,29 @@ document.getElementById(div).style.visibility="false";
 }
 $(document).ready(function(){
 		$("#artist").click(function(){
+		  $('#main').hide();
+		  $('#mainMenu').hide();
+		  $('#category').hide();
+		  $('#dl_btn').hide();
+			$('#backmenu').hide();	
+			$('#dl_btn1').hide();
+			 $('#xPort').hide();
+			  $('#xPort1').hide();
+			   $('#tab').hide();
+		//	hide('main');
+		//	hide('backmenu');
+		//	hide('category');
+		//	hide('dl_btn');
+		//	hide('dl_btn1');
+		//	hide('mainMenu');
+		//	hide('xPort');
+		//	hide('xPort1');
+		//	hide('tab');
+		
 		prep();
-                 alert(wordlist);
-			 
-			 pop('searchmenu');
- 
-			
-			 
-			
+              alert(wordlist);
+
+			pop('searchmenu');
 			
 				 monkeyPatchAutocomplete();
 
