@@ -40,7 +40,7 @@ var uniqNew=new Array();
 
 eventsNew=eventsNew.split(',');
 for (var i = 0; i<eventsNew.length; i++) {
-  uniqNew.push(events[i]);
+  uniqNew.push(eventsNew[i]);
 }
  wordlist= remove_duplicates_safe(uniqNew);
  wordlist.sort();
@@ -134,10 +134,10 @@ function monkeyPatchAutocomplete() {
 	
 }
 function onDeviceReady(){
-	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
-	//document.getElementById("defaultOpen").click();
+	 document.getElementById("defaultOpen").click();
       checkConnection();
 	
    document.addEventListener("backbutton", function (e) {
@@ -1041,7 +1041,7 @@ display	: none;
         </nav>
          <div id=main >
             <table border=0 width='100%' cellpadding="0" cellspacing="0"  bgcolor=#0c9db7><tr height='70px'><td style='vertical-align: middle;' >&nbsp;
-         <a href="#" class="ssm-toggle-nav"  style='text-decoration: none; color: #ffffff;' title="open nav">&#9776;</a></td><td  align='center'><font size=3 color='#ffffff'><b>Madras Music & Miscellany</b></font></td><td><button id='artist' class='btn2' onclick='srchArtist();'><img src='search.png' style='border:none; outline: none; vertical-align:middle'></button>&nbsp;</td></tr></table>
+         <a href="#" class="ssm-toggle-nav"  style='text-decoration: none; color: #ffffff;' title="open nav">&#9776;</a></td><td  align='center'><font size=3 color='#ffffff'><b>Madras Music & Miscellany</b></font></td><td><button id='artist' class='btn2' ><img src='search.png' style='border:none; outline: none; vertical-align:middle'></button>&nbsp;</td></tr></table>
         </div>
 <div id='backmenu' class='backmenu'>
 	 
