@@ -3,15 +3,17 @@
  */
 nav {
     height: 100%;
-    width: 280px;
-    background-color: #0a4a3c;
+    width: 170px;
+    background-color:#3b6f8a;
     left: 0;
     top: 0;
     z-index: 2;
     position: fixed;
     overflow-y: auto;
     overflow-x: visible;
-    transform: translate(-280px,0);
+    transform: translate(-170px,0);
+     font-weight: bold;
+    color: #ffffff;
 }
 .ssm-overlay {
 	position: fixed;
@@ -22,4 +24,5 @@ nav {
 	background-color: rgba(0,0,0,0.2);
     display: none;
     z-index: 1;
+	 color: #ffffff;
 }
