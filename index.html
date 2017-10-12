@@ -470,16 +470,16 @@ var usrauth ;
 	var wordlist=new Array();
 	function prep()
 	{
-	eventsNew="Bombay Chanakya,Crazy Mohan,Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters,Trichur Brothers,Bombay Sisters";
+//	eventsNew="Bombay Chanakya,Crazy Mohan,Bombay Sri Chankya ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,U.ve Sri M.v.ananthapadmanabha Swamy ,Sri P.muthukumaran ,Smt. Subhalakshmi Krishnamoorthy,Bombay Chanakya,Bombay Chanakya,Bombay Jayashree,Mambalam Sisters,Trichur Brothers,Bombay Sisters";
 	// alert('in');
 
-var uniqNew=new Array();
+//var uniqNew=new Array();
 
-eventsNew=eventsNew.split(',');
-for (var i = 0; i<eventsNew.length; i++) {
-  uniqNew.push(eventsNew[i]);
-}
- wordlist= remove_duplicates_safe(uniqNew);
+//eventsNew=eventsNew.split(',');
+//for (var i = 0; i<eventsNew.length; i++) {
+//  uniqNew.push(eventsNew[i]);
+//}
+ wordlist= remove_duplicates_safe(artistArr);
  wordlist.sort();
 	}
 
@@ -1021,6 +1021,7 @@ function procVal(pVar)
 	locArr=locArr.split('#');
 	events=[];
 	venue_arr=[];
+	artistArr=[];
 	for (var i = 0; i<locArr.length; i++) {
 		delimiter = ',';
 		start = 6;
@@ -1044,6 +1045,7 @@ function procVal(pVar)
 		//multiArr.push([latR[2],latR[0],latR[1],dist]);
 		events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);
 		venue_arr.push([venue]);
+		artistArr.push([art]);
 		//alert(events.length);
 		//write ajax response to text file
 		
