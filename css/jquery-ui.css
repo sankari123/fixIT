@@ -35,7 +35,7 @@
 .ui-menu .ui-menu-item {
 	position: relative;
 	margin: 0;
-	 padding: 3px 1em 53px .4em; 
+	padding: 3px 1em 53px .4em;
 	cursor: pointer;
 	min-height: 0; /* support: IE7 */
 	/* support: IE10, see #8844 */
@@ -161,7 +161,6 @@
 }
 .ui-widget-content a {
 	color: #000000;
-	left: auto;
 }
 .ui-widget-header {
 
@@ -217,7 +216,7 @@
 .ui-widget-header .ui-state-active {
 	border: 1px solid #aaaaaa;
 	background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
-	font: normal;
+	font-weight: normal;
 	color: #212121;
 }
 .ui-state-active a,
