@@ -518,7 +518,7 @@ document.getElementById(div).style.visibility="false";
 }
 $(document).ready(function(){
 		$("#artist").click(function(){
-		$('#arSrch').show();	 
+		
 		  $('#main').hide();
 		  $('#mainMenu').hide();
 		  $('#category').hide();
@@ -548,6 +548,7 @@ $(document).ready(function(){
 				 monkeyPatchAutocomplete();
 
           $("#input1").autocomplete({
+		  $('#arSrch').show();	 
               // The source option can be an array of terms.  In this case, if
               // the typed characters appear in any position in a term, then the
               // term is included in the autocomplete list.
@@ -570,17 +571,16 @@ $(document).ready(function(){
                   if (typeof data == "undefined") {
                   //    addMessage('You selected: ' + value + "<br/>");
 			  alert('out');
-					  document.getElementById('reslt').value=data.item.value;
+				//	  document.getElementById('reslt').value=data.item.value;
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
 			 
 			   
     			//document.activeElement.blur();
-    				$("#input1").blur();
-			  $("#arSrch").hide();
+    				
  
 			  displayResults(data.item.value);
-					   document.getElementById('reslt').value=data.item.value;
+				//	   document.getElementById('reslt').value=data.item.value;
                   }
               }
           });
@@ -609,18 +609,20 @@ function monkeyPatchAutocomplete() {
 		
 function displayResults(artistNam)
 {
+$("#input1").blur();
+$("#arSrch").hide();
 $('#xPort').show();	
-$('#xPort1').show();	
+//$('#xPort1').show();	
 $('#dl_btn').show();		
  
 document.getElementById('xPort').innerHTML='' ;
 	
 var artEvt ='';
 	var artEvtDetails='';
-//alert(catSel);
+alert(artistNam);
 	var art_lst='';
-var art_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
-art_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  artistNam +"   Schedule</font></b></td></tr>";
+var art_lst="<table border='1' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
+art_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  artistNam +"</font></b></td></tr>";
 for (var i = 0, len = events.length; i < len; i++)
 {
 	 
