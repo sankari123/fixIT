@@ -518,7 +518,7 @@ document.getElementById(div).style.visibility="false";
 }
 $(document).ready(function(){
 		$("#artist").click(function(){
-			document.getElementById('arSrch').style.display = 'block';
+		$('#arSrch').show();	 
 		  $('#main').hide();
 		  $('#mainMenu').hide();
 		  $('#category').hide();
@@ -574,9 +574,10 @@ $(document).ready(function(){
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
 			 
-			   document.getElementById('arSrch').style.display = 'none';
+			   
     			//document.activeElement.blur();
     				$("#input1").blur();
+			  $("#arSrch").hide();
  
 			  displayResults(data.item.value);
 					   document.getElementById('reslt').value=data.item.value;
