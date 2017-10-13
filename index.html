@@ -1180,16 +1180,26 @@ document.getElementById("tab").style.visibility="false";
 function backSt() 
 	{
 		backbtn=1;
-		document.getElementById("login").style.visibility="false";
-		document.getElementById("login").style.display="none";
-		document.getElementById("category").style.display="block";
-		document.getElementById("category").style.visibility="true";
-		document.getElementById("main").style.display="block";
-		document.getElementById("main").style.visibility="true";
-		 document.getElementById("mainMenu").style.display="block";
-		document.getElementById("mainMenu").style.visibility="true"; 
-		document.getElementById("backmenu").style.display="none";
-		document.getElementById("backmenu").style.visibility="false";
+		 
+		
+		 $('#category').show();
+		$('#main').show();
+		 $('#mainMenu').show();
+		 $('#searchmenu').hide();
+		 $('#login').hide();
+		 $('#backmenu').hide();
+		
+		
+		//document.getElementById("login").style.visibility="false";
+		//document.getElementById("login").style.display="none";
+		//document.getElementById("category").style.display="block";
+		//document.getElementById("category").style.visibility="true";
+		//document.getElementById("main").style.display="block";
+	//	document.getElementById("main").style.visibility="true";
+	//	 document.getElementById("mainMenu").style.display="block";
+	//	document.getElementById("mainMenu").style.visibility="true"; 
+	//	document.getElementById("backmenu").style.display="none";
+	//	document.getElementById("backmenu").style.visibility="false";
 		document.getElementById("defaultOpen").click();
 }
 
