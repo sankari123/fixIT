@@ -1147,9 +1147,9 @@ function procVal(pVar)
 		// $("#lst_mnu").slideToggle("slow");
 			//  $('#lst_mnu').toggle('slide','right',500);
 		 
-		
-		document.getElementById("lst_mnu").style.display="block";
-		document.getElementById("lst_mnu").style.visibility="true";
+		$('#lst_mnu').show('slide', 400);
+		//document.getElementById("lst_mnu").style.display="block";
+		//document.getElementById("lst_mnu").style.visibility="true";
 		 
 		 
 		
@@ -1317,9 +1317,10 @@ function openCity(evt, cityName) {
 function category()
 {
 	  
-		
-		document.getElementById("category").style.display="block";
-		document.getElementById("category").style.visibility="true";
+ 
+		$('#category').show('slide', 400);
+		//document.getElementById("category").style.display="block";
+		//document.getElementById("category").style.visibility="true";
 		document.getElementById("login").style.display="none";
 		document.getElementById("login").style.visibility="false"; 
 		
@@ -1538,6 +1539,7 @@ function calClick()
 		//alert('optsel'+optSel);
 		optSel=2;
 		active_page=1;
+		$('#calendar').show('slide', 400);
 		// $("#calendar").slideToggle("slow");
 		//	  $('#calendar').toggle('slide','right',500);	 
 		document.getElementById("calendar").style.display="block";
