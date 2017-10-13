@@ -1726,8 +1726,9 @@ for (var i = 0, len = events.length; i < len; i++)
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 		calEvt = calEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
 			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
-			
-	 
+			dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
+	                 var n = weekday[dayStr.getDay()];
+			alert(n);
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
@@ -1901,7 +1902,32 @@ prevyr='';
 		
 	  document.getElementById('archive').innerHTML =pdfTxt+"</table>";
 // document.getElementById('archive').innerHTML ='iiiiiiisdfsdfsdfsdf';
-}	
+}
+		
+function stringToDate(_date,_format,_delimiter)
+{
+            var formatLowerCase=_format.toLowerCase();
+            var formatItems=formatLowerCase.split(_delimiter);
+            var dateItems=_date.split(_delimiter);
+            var monthIndex=formatItems.indexOf("mm");
+            var dayIndex=formatItems.indexOf("dd");
+            var yearIndex=formatItems.indexOf("yyyy");
+            var month=parseInt(dateItems[monthIndex]);
+            month-=1;
+            var formatedDate = new Date(dateItems[yearIndex],month,dateItems[dayIndex]);
+            return formatedDate;
+}
+
+var d = new Date();
+var weekday = new Array(7);
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+		
 	</script>
 </head>
  
