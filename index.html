@@ -48,10 +48,8 @@
 	    {
 	    display: none; 
 	    }
-#srchSpan
-	    {
-	    font-size: 0.8em; 
-	    }
+
+	   
 
 
 	.nav ul {
@@ -520,6 +518,7 @@ document.getElementById(div).style.visibility="false";
 }
 $(document).ready(function(){
 		$("#artist").click(function(){
+			document.getElementById('arSrch').style.display = 'block';
 		  $('#main').hide();
 		  $('#mainMenu').hide();
 		  $('#category').hide();
@@ -574,8 +573,8 @@ $(document).ready(function(){
 					  document.getElementById('reslt').value=data.item.value;
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
-			  // alert('in');
 			 
+			   document.getElementById('arSrch').style.display = 'none';
     			//document.activeElement.blur();
     				$("#input1").blur();
  
@@ -596,7 +595,7 @@ function monkeyPatchAutocomplete() {
 
           $.ui.autocomplete.prototype._renderItem = function( ul, item) {
               var re = new RegExp("^" + this.term, "i") ;
-              var t = item.label.replace(re,"<br><span style='color:black;text-align: left;'>" + this.term + "</span>");
+              var t = item.label.replace(re,"<br><span id='arSrch' style='color:black;text-align: left;'>" + this.term + "</span>");
               return $( "<li></li>" )
                   .data( "item.autocomplete", item )
                   .append( "<a>" + t + "</a>" )
