@@ -43,6 +43,11 @@
 	
 			 
     }
+	    
+	    .artDisplay
+	    {
+	    display: none; 
+	    }
 #srchSpan
 	    {
 	    font-size: 0.8em; 
@@ -570,6 +575,7 @@ $(document).ready(function(){
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
 			   alert('in');
+			  displayResults(data.item.value);
 					   document.getElementById('reslt').value=data.item.value;
                   }
               }
@@ -595,6 +601,57 @@ function monkeyPatchAutocomplete() {
       }
 
 
+		
+		
+function displayResults(artistNam)
+{
+$('#xPort').show();	
+$('#xPort1').show();	
+$('#dl_btn').show();		
+ 
+document.getElementById('xPort').innerHTML='' ;
+	
+var artEvt ='';
+	var artEvtDetails='';
+//alert(catSel);
+	var art_lst='';
+var art_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
+art_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  artistNam +"   Schedule</font></b></td></tr>";
+for (var i = 0, len = events.length; i < len; i++)
+{
+	 
+	if(events[i][8]==artistNam)
+		{
+			
+			hours=String(events[i][4]);
+			var timeString = hours;
+			var H = +timeString.substr(0, 2);
+			var h = H % 12 || 12;
+			var ampm = H < 12 ? "AM" : "PM";
+			timeString = h + timeString.substr(2, 3) + " "+ampm;
+		        artEvt = artEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			artEvtDetails=artEvtDetails+events[i][5]+'  '+events[i][8]+'%';
+//events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);			
+	 
+	art_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+			
+			
+	art_lst+=events[i][5]+'<br>'+'<br>';
+	 
+	art_lst+=events[i][7]+'<hr size=2></td></tr>';
+		 
+		}
+ 
+} 
+ 
+	art_lst = art_lst.replace('undefined','');
+	artEvt = artEvt.replace('undefined','');
+	artEvtDetails = artEvtDetails.replace('undefined','');
+	document.getElementById('xPort').innerHTML=art_lst +"<table>";
+	
+	
+	
+}		
 //****************************************************************//
 function init() {
     	document.addEventListener("deviceready", onDeviceReady, false);
@@ -1883,11 +1940,12 @@ prevyr='';
 
  <!--<div id='msgs' class="inputDiv" style='color:red;font-size:10pt;font-weight:normal;'>
     </div> -->
-<input id='reslt' style='color :red;' >
+<!--<input id='reslt' style='color :red;' >-->
 	 
 		</div>
 	
-      
+    <div id='artDisplay' class= 'artDisplay'>
+</div>
 	
 	<div id='mainMenu' class='mainMenu'>	
 	 
