@@ -516,6 +516,11 @@ function hide(div) {
 document.getElementById(div).style.display = 'none';
 document.getElementById(div).style.visibility="false";	
 }
+		
+$("#input1").keypress(function(){
+   $('#artist').trigger('click');
+});
+		
 $(document).ready(function(){
 		$("#artist").click(function(){
 		  $('#arSrch').show();	 
