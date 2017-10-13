@@ -574,7 +574,11 @@ $(document).ready(function(){
 					  document.getElementById('reslt').value=data.item.value;
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
-			   alert('in');
+			  // alert('in');
+			 
+    			//document.activeElement.blur();
+    				$("#input1").blur();
+ 
 			  displayResults(data.item.value);
 					   document.getElementById('reslt').value=data.item.value;
                   }
