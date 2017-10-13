@@ -35,7 +35,7 @@
 .ui-menu .ui-menu-item {
 	position: relative;
 	margin: 0;
-	padding: 3px 1em 20px .4em;
+	padding: 3px 1em 40px .4em;
 	cursor: pointer;
 	min-height: 0; /* support: IE7 */
 	/* support: IE10, see #8844 */
@@ -156,11 +156,11 @@
 }
 .ui-widget-content {
 	 
-	background: gray ;
+	background: white ;
 	color: #222222;
 }
 .ui-widget-content a {
-	color: #ffffff;
+	color: #000000;
 }
 .ui-widget-header {
 
