@@ -562,9 +562,11 @@ $(document).ready(function(){
               select: function(value, data){
                   if (typeof data == "undefined") {
                   //    addMessage('You selected: ' + value + "<br/>");
+			  alert('out');
 					  document.getElementById('reslt').value=data.item.value;
                   }else {
                    //   addMessage('You selected: ' + data.item.value + "<br/>");
+			   alert('in');
 					   document.getElementById('reslt').value=data.item.value;
                   }
               }
