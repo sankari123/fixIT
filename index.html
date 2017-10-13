@@ -518,8 +518,9 @@ document.getElementById(div).style.visibility="false";
 }
 		
 $("#input1").keypress(function(){
- $('#xPort').hide();
+  
 	 $('#dl_btn').hide();
+	document.getElementById('xPort').innerHTML='' ;
    $('#artist').trigger('click');
 });
 		
@@ -548,7 +549,7 @@ $(document).ready(function(){
 		//	hide('tab');
 		
 		prep();
-              alert(wordlist);
+              //alert(wordlist);
 
 			pop('searchmenu');
 			
@@ -626,7 +627,7 @@ document.getElementById('xPort').innerHTML='' ;
 	
 var artEvt ='';
 	var artEvtDetails='';
-alert(artistNam);
+//alert(artistNam);
 	var art_lst='';
 var art_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
 art_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  artistNam +"</font></b></td></tr>";
