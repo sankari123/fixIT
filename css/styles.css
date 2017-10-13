@@ -23,7 +23,7 @@ body {
     font-family: 'Open Sans';
    
     margin: 0;
-    padding: 50px 15px;
+ /*   padding: 50px 15px;*/
     text-align: center;
 }
 .is-navOpen{
