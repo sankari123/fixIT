@@ -1730,7 +1730,8 @@ for (var i = 0, len = events.length; i < len; i++)
 	                 var n = weekday[dayStr.getDay()];
 			var mNam= monthNames[dayStr.getMonth()];
 			//alert(n);
-			alert(timeString.substr(2, 3));
+			var result =  (h + timeString.substr(2, 3)).replace(/^(?:00:)?0?/, '');
+			alert(result);
 		 
 	//ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 		ev_lst+="<tr align='center' ><td>"+n+", " +events[i][2]+" "+mNam+" "+timeString+"<br>";
