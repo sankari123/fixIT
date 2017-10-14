@@ -1711,7 +1711,7 @@ calEvt ='';
 //alert(catSel);
 	var ev_lst='';
 var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
-ev_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b>"+  catSel +"   Schedule</b></td></tr>";
+ev_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  catSel +"   Schedule</font></b></td></tr>";
 for (var i = 0, len = events.length; i < len; i++)
 {
 	cat1=events[i][6];
@@ -1732,8 +1732,8 @@ for (var i = 0, len = events.length; i < len; i++)
 			alert(n);
 			alert(mNam);
 		 
-	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
-			
+	//ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+		ev_lst+="<tr align='center' ><td>"+n+"," +events[i][2]+	mNam+timeString+"<br>";
 			
 	ev_lst+=events[i][5]+'<br>'+'<br>';
 	ev_lst+=events[i][8]+'<br>';
@@ -1923,13 +1923,13 @@ function stringToDate(_date,_format,_delimiter)
 
 //var d = new Date();
 var weekday = new Array(7);
-weekday[0] =  "Sunday";
-weekday[1] = "Monday";
-weekday[2] = "Tuesday";
-weekday[3] = "Wednesday";
-weekday[4] = "Thursday";
-weekday[5] = "Friday";
-weekday[6] = "Saturday";
+weekday[0] =  "Sun";
+weekday[1] = "Mon";
+weekday[2] = "Tue";
+weekday[3] = "Wed";
+weekday[4] = "Thu";
+weekday[5] = "Fri";
+weekday[6] = "Sat";
 		
 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
