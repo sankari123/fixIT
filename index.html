@@ -1728,10 +1728,10 @@ for (var i = 0, len = events.length; i < len; i++)
 			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
 			dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
 	                 var n = weekday[dayStr.getDay()];
-			var mNam= monthNam[month];
+			var mNam= monthNames[dayStr.getMonth()];
 			alert(n);
 			alert(mNam);
-		//	alert(substring(mNam,0,3));
+		 
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
@@ -1931,19 +1931,10 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 		
-var monthNam=new Array(12);
-month[0]="Jan";
-month[1]="Feb";
-month[2]="Mar";
-month[3]="Apr";
-month[4]="May";
-month[5]="Jun";
-month[6]="Jul";
-month[7]="Aug";
-month[8]="Sep";
-month[9]="Oct";
-month[10]="Nov";
-month[11]="Dec";		
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
+	
 </script>
 </head>
  
