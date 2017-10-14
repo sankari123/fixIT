@@ -1728,7 +1728,9 @@ for (var i = 0, len = events.length; i < len; i++)
 			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
 			dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
 	                 var n = weekday[dayStr.getDay()];
+			var mNam=month[d.getMonth()];
 			alert(n);
+			alert(substring(mNam,0,3));
 	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
 			
 			
@@ -1918,7 +1920,7 @@ function stringToDate(_date,_format,_delimiter)
             return formatedDate;
 }
 
-var d = new Date();
+//var d = new Date();
 var weekday = new Array(7);
 weekday[0] =  "Sunday";
 weekday[1] = "Monday";
@@ -1928,7 +1930,20 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 		
-	</script>
+var monthNam=new Array(12);
+month[0]="January";
+month[1]="February";
+month[2]="March";
+month[3]="April";
+month[4]="May";
+month[5]="June";
+month[6]="July";
+month[7]="August";
+month[8]="September";
+month[9]="October";
+month[10]="November";
+month[11]="December";		
+</script>
 </head>
  
 
