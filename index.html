@@ -1720,8 +1720,7 @@ calEvt ='';
 	calEvtDetails='';
 //alert(catSel);
 	var ev_lst='';
-var ev_lst="<table border='0' id='test' class='ven1' cellpadding='0' cellspacing='0'>";
-ev_lst+="<tr height='40px' bgcolor='white'><td colspan=3 align='center'><b><font color=red>"+  catSel +"   Schedule</font></b></td></tr></table>";
+var ev_lst="<center><b><font color=red>"+  catSel +"   Schedule</center></font></b><br>";
 for (var i = 0, len = events.length; i < len; i++)
 {
 	cat1=events[i][6];
@@ -1734,7 +1733,7 @@ for (var i = 0, len = events.length; i < len; i++)
 			var h = H % 12 || 12;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
-		calEvt = calEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
+			calEvt = calEvt+events[i][3]+'  '+events[i][1]+"  "+events[i][2]+'&';
 			calEvtDetails=calEvtDetails+events[i][5]+'  '+events[i][8]+'%';
 			dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
 	                 var n = weekday[dayStr.getDay()];
@@ -1743,16 +1742,16 @@ for (var i = 0, len = events.length; i < len; i++)
 			//var result = parseFloat(4.00);
 		//	alert(hours);
 		 
-	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
-		ev_lst+="<tr align='center' ><td>"+n+", " +events[i][2]+" "+mNam+" "+timeString+"<br>";
+//	ev_lst+="<tr align='center' ><td>"+events[i][2]+"/"+events[i][1]+"/"+events[i][3]+ "&nbsp;&nbsp;"+timeString+"<br>";
+//		ev_lst+="<tr align='center' ><td>"+n+", " +events[i][2]+" "+mNam+" "+timeString+"<br>";
 			
-	ev_lst+=events[i][5]+'<br>'+'<br>';
-	ev_lst+=events[i][8]+'<br>';
-	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
+//	ev_lst+=events[i][5]+'<br>'+'<br>';
+//	ev_lst+=events[i][8]+'<br>';
+//	ev_lst+=events[i][7]+'<hr size=2></td></tr>';
 //ev_lst="<div id='wrapper'><div id='left'>"+events[i][5]+"</div><div id='right'>"+n+"," +events[i][2]+" "+mNam+" "+timeString+"<br>"+events[i][8]+"<br>"+events[i][7]+"</div>"
 //</div> 
 			
-			
+	ev_lst+="<div id='wrapper'><div id='left'>"+events[i][5]+"</div><div id='right'>" +n+", " +events[i][2]+" "+mNam+" "+timeString+'<br>'+'<br>'+events[i][8]+'<br>'+events[i][7]+	"</div></div> <hr size=1>	"	;		
 			
 			
 		}
