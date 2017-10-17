@@ -537,10 +537,7 @@ document.getElementById(div).style.visibility="false";
 }
 		
 $("#input1").keypress(function(){
-        alert('in');
-	 $('#dl_btn').hide();
-	document.getElementById('xPort').innerHTML='' ;
-       $('#artist').trigger('click');
+     $('#artist').trigger('click');
 });
 		
 $(document).ready(function(){
@@ -576,12 +573,14 @@ $(document).ready(function(){
 				 monkeyPatchAutocomplete();
 
           $("#input1").autocomplete({
-		
+		  $('#dl_btn').hide();
+		    $('#xPort1').hide();
               // The source option can be an array of terms.  In this case, if
               // the typed characters appear in any position in a term, then the
               // term is included in the autocomplete list.
               // The source option can also be a function that performs the search,
               // and calls a response function with the matched entries.
+		  
               source: function(req, responseFn) {
                  // addMessage("search on: '" + req.term + "'<br/>");
                   var re = $.ui.autocomplete.escapeRegex(req.term);
