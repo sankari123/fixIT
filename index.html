@@ -582,6 +582,8 @@ $(document).ready(function(){
 		  
               source: function(req, responseFn) {
                  // addMessage("search on: '" + req.term + "'<br/>");
+		        $('#dl_btn').hide();
+		$("#xPort").html("");
                   var re = $.ui.autocomplete.escapeRegex(req.term);
 				  var matcher = new RegExp( "^" + re, "i" );
 				    
