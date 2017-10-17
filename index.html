@@ -1019,7 +1019,8 @@ function showevents(day,month,year,week,dayofweek) {
 //	window.plugins.spinnerDialog.hide();		
 var theevent = "";
 var floater = 0;
-	 
+	 theevent="<center>"+n+", " +events[i][2]+" "+mNam+"</center>";
+		
 	for (var i = 0; i < events.length; i++) {
 	
 	if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
@@ -1044,7 +1045,6 @@ var floater = 0;
 		  // theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
 		   //theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
  		
-		
 		
 		dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
 	                var n = weekday[dayStr.getDay()];
@@ -1676,7 +1676,7 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			ev_lst+="<tr height='90px'><td colspan=3 align='center'><font size=3>"+v+"</font></td></tr></table>";
+			ev_lst+="<tr height='50px'><td colspan=3 align='center'><font size=3 color=red>"+v+"</font></td></tr></table>";
 		}
 		k++;
 		hours=String(events[i][4]);
@@ -1714,7 +1714,7 @@ function ven_det(v)
 		
 		
 		
-		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+"<b>" +n+", " +events[i][2]+" "+mNam+" "+' '+jj+"</b></div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> 	"; 
+		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+n+", " +events[i][2]+" "+mNam+" "+' '+jj+"</div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> 	"; 
 		
 		
 		
@@ -1723,7 +1723,7 @@ function ven_det(v)
 			
 	else
 	{
-ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+"<b>" +n+", " +events[i][2]+" "+mNam+" "+' '+jj+"</b></div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
+ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+n+", " +events[i][2]+" "+mNam+" "+' '+"<br>"+jj+"</div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
 	}
 		
 		
