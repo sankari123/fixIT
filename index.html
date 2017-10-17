@@ -32,6 +32,7 @@
 	font-size: 10pt;
 	 display: inline-block;
 	  vertical-align: bottom;
+	padding-left: 2cm;
 }
 #right {
   flex: 1;
@@ -1626,7 +1627,7 @@ function ven_det(v)
 		if(k==0)
 		{
 			//alert('in2');
-			ev_lst+="<tr height='90px'><td colspan=3 align='center'><font size=3>"+v+"- Schedule</font></td></tr>";
+			ev_lst+="<tr height='90px'><td colspan=3 align='center'><font size=3>"+v+"</font></td></tr>";
 		}
 		k++;
 		hours=String(events[i][4]);
@@ -1727,7 +1728,7 @@ calEvt ='';
 	calEvtDetails='';
 //alert(catSel);
 	var ev_lst='';
-var ev_lst="<br><center><b><font color=red>"+  catSel +"   Schedule</center></font></b><br>";
+var ev_lst="<br><center><b><font color=red>"+  catSel +"</center></font></b><br>";
 for (var i = 0, len = events.length; i < len; i++)
 {
 	cat1=events[i][6];
