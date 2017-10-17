@@ -1068,7 +1068,7 @@ var floater = 0;
 		if(i%2==0)
 	{
 		
-		theevent="<div id='wrapper' style='background:white'><div id='left'>"+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
+		theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:white'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
 		
 		
 	 		
@@ -1076,7 +1076,7 @@ var floater = 0;
 			
 	else
 	{
-	theevent="<div id='wrapper' style='background:#f1f1f1'><div id='left'>"+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
+	theevent+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:#f1f1f1'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
 	}
 		
 		
@@ -2130,15 +2130,15 @@ var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 	   <table width='100%' border=0 cellpadding=0 cellpadding=0 >
 		   <tr><td onclick='eventList(1);'><button onclick='eventList(1);' class='btn2'><img src='concert.png'  style="vertical-align:middle"  bordercolor='FFFFFF'><span>Concerts</span></button></td><td width='7%'><button onclick='eventList(1);' class='btn2'><img src='arrow.png'  width=10px height=10px style="vertical-align:middle"></button><font color='white'>&nbsp;&nbsp;&nbsp;&nbsp;11</font></td></tr>
 		   <tr valign="top"><td colspan=2><hr size=1 color='#ececec'></td></tr>
-		    <tr><td ><button onclick='eventList(2);' class='btn2' ><img src='dance.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Dance</span></button></td><td width='7%'><button onclick='eventList(2);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr><td  onclick='eventList(2);'><button onclick='eventList(2);' class='btn2' ><img src='dance.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Dance</span></button></td><td width='7%'><button onclick='eventList(2);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
 		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
-		   <tr><td><button onclick='eventList(3);' class='btn2'><img src='drama.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Drama</span></button></td><td width='7%'><button onclick='eventList(3);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		   <tr><td  onclick='eventList(3);'><button onclick='eventList(3);' class='btn2'><img src='drama.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Drama</span></button></td><td width='7%'><button onclick='eventList(3);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
 		   <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
-		    <tr><td><button onclick='eventList(4);' class='btn2' ><img src='lec-dem.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Lec-Dem</span></button></td><td width='7%'><button onclick='eventList(4);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr><td  onclick='eventList(4);'><button onclick='eventList(4);' class='btn2' ><img src='lec-dem.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Lec-Dem</span></button></td><td width='7%'><button onclick='eventList(4);' class='btn2' ><img src='arrow.png'   width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
 		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
-		   <tr><td><button onclick='eventList(5);' class='btn2'><img src='harikatha.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Harikatha</span></button></td><td width='7%'><button onclick='eventList(5);' class='btn2' ><img src='arrow.png'  width=10px height=10px  style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		   <tr><td  onclick='eventList(5);'><button onclick='eventList(5);' class='btn2'><img src='harikatha.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Harikatha</span></button></td><td width='7%'><button onclick='eventList(5);' class='btn2' ><img src='arrow.png'  width=10px height=10px  style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
 		   <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
-		    <tr><td ><button onclick='eventList(6);' class='btn2' ><img src='meetup.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Meetup</span></button></td><td width='7%'><button onclick='eventList(6);' class='btn2' ><img src='arrow.png'  width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
+		    <tr><td  onclick='eventList(6);'><button onclick='eventList(6);' class='btn2' ><img src='meetup.png'   style="vertical-align:middle"  bordercolor='FFFFFF'><span>Meetup</span></button></td><td width='7%'><button onclick='eventList(6);' class='btn2' ><img src='arrow.png'  width=10px height=10px style="vertical-align:middle"  bordercolor='FFFFFF'></button>&nbsp;&nbsp;&nbsp;</td></tr>
 		    <tr valign="top"><td  colspan=2><hr size=1 color='#ececec'></td></tr>
 		   
 		</table>
