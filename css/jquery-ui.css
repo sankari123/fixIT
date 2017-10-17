@@ -16,7 +16,7 @@
 	top: 0;
 	left: 0;
 	cursor: default;
-	color: red;
+/*	color: red;*/
 }
 
 
@@ -24,6 +24,7 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	height:100%;
 	display: block;
 	outline: none;
 	 color: gray;
