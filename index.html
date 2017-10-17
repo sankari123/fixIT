@@ -1029,20 +1029,20 @@ var floater = 0;
 			var ampm = H < 12 ? "AM" : "PM";
 			timeString = h + timeString.substr(2, 3) + " "+ampm;
 			 
-			theevent += "<br>&nbsp;&nbsp;Events of: " +day +'/'+ month + '/'+year + '&nbsp;&nbsp;    '+timeString+'<br>';
+		//	theevent += "<br>&nbsp;&nbsp;Events of: " +day +'/'+ month + '/'+year + '&nbsp;&nbsp;    '+timeString+'<br>';
 			//theevent += 'Time: ' +  timeString + '\n';
-			theevent += '&nbsp;&nbsp;'+events[i][6];
-			theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
-			theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
-			theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
-			theevent += '<br><hr size=2 color=gray>';
+		//	theevent += '&nbsp;&nbsp;'+events[i][6];
+		//	theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
+		//	theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
+		//	theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
+		//	theevent += '<br><hr size=2 color=gray>';
 		//	document.forms.eventform.eventlist.value = theevent;
 			
 		//   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
 		  // theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
 		   //theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
  		
-		
+		theevent="<div id='wrapper'><div id='left'><img src='loc.png' width='12px' height='20px'> "+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
 		
 		
 		}
