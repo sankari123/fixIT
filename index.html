@@ -1063,7 +1063,24 @@ var floater = 0;
 
 			}
 			
-		theevent="<div id='wrapper'><div id='left'><img src='loc.png' width='12px' height='20px'> "+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
+		
+		
+		if(i%2==0)
+	{
+		
+		theevent="<div id='wrapper' style='background:white'><div id='left'>"+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
+		
+		
+	 		
+	}
+			
+	else
+	{
+	theevent="<div id='wrapper' style='background:#f1f1f1'><div id='left'>"+events[i][5]+" @"+jj+"</div><div id='right'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> <hr size=1>	"	; 
+	}
+		
+		
+		
 		
 		
 		}
