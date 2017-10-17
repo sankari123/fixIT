@@ -549,7 +549,7 @@ $(document).ready(function(){
 		  $('#category').hide();
 		 $('#calendar').hide();
 		  $('#dl_btn').hide();
-			   $('#lst_mnu').hide();
+		  $('#lst_mnu').hide();
 			$('#backmenu').show();	
 			$('#dl_btn1').hide();
 			 $('#xPort').hide();
@@ -615,7 +615,8 @@ $(document).ready(function(){
 });	
 
 function monkeyPatchAutocomplete() {
-
+		  $('#dl_btn').hide();
+	$("#xPort").html("");
           // Don't really need to save the old fn, 
           // but I could chain if I wanted to
           var oldFn = $.ui.autocomplete.prototype._renderItem;
