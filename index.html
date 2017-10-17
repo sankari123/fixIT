@@ -1692,7 +1692,7 @@ function ven_det(v)
 	                var n = weekday[dayStr.getDay()];
 			var mNam= monthNames[dayStr.getMonth()];
 			
-			
+		//	events.push(["",String(eMon),String(eDat),String(eYr),pTim,venue,pnam,Pdeta,art,pLatLong]);	
 			
 			 var chkStr = hours.substring( hours.indexOf(':') + 1 ) ;
 
@@ -1714,7 +1714,7 @@ function ven_det(v)
 		
 		
 		
-		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> 	"; 
+		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+"<b>" +n+", " +events[i][2]+" "+mNam+" "+' '+jj+"</b></div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> 	"; 
 		
 		
 		
@@ -1723,7 +1723,7 @@ function ven_det(v)
 			
 	else
 	{
-ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
+ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+"<b>" +n+", " +events[i][2]+" "+mNam+" "+' '+jj+"</b></div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
 	}
 		
 		
