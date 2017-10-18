@@ -1450,9 +1450,9 @@ function category()
 		
 }
 
-function ajaxCall() {
+function ajaxCall(n) {
 	 
-	 //alert('in');
+	 alert(n);
 	 x=document.getElementById('usrname').value;
 	 y=document.getElementById('usrpwd').value;
 	//  alert(x +'in');
@@ -2235,7 +2235,7 @@ var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 		    <tr><td>&nbsp;</td></tr>
 		   <tr><td align=right> <a href="#" onclick='forgot_pass(); ' style='text-decoration: none;color: black;'><font size=1>Forgot Password?</font></a></td></tr>
 		   <tr><td>&nbsp;</td></tr>
-	<tr bgcolor='f4f4f4' height='60px'><td> <button id='display' class="btn34" onclick='ajaxCall();'>Login</button>	</td></tr>
+	<tr bgcolor='f4f4f4' height='60px'><td> <button id='display' class="btn34" onclick='ajaxCall(this);'>Login</button>&nbsp;	&nbsp;&nbsp;<button id='register' class="btn34" onclick='ajaxCall(this);'>Register</button></td></tr>
 		   
 		</table>
 		 
