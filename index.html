@@ -1021,35 +1021,42 @@ var theevent = "";
 var floater = 0;
 	document.getElementById('xPort').innerHTML='' ;
 	//document.getElementById("xPort").innerHTML='';
-	 theevent="<center>"+n+", " +events[i][2]+" "+mNam+"</center>";
+	 
 		
 	for (var i = 0; i < events.length; i++) {
 	
 	if ((events[i][2] == day) && (events[i][1] == month) && (events[i][3] == year)) {
 			
 			hours=String(events[i][4]);
+		 	
+			 	
 			var timeString = hours;
-			var H = +timeString.substr(0, 2);
+			var H = timeString.substr(0, 2);
 			var h = H % 12 || 12;
+	 
 			var ampm = H < 12 ? "AM" : "PM";
-			timeString = h + timeString.substr(2, 3)  ;
-			 
-		//	theevent += "<br>&nbsp;&nbsp;Events of: " +day +'/'+ month + '/'+year + '&nbsp;&nbsp;    '+timeString+'<br>';
-			//theevent += 'Time: ' +  timeString + '\n';
-		//	theevent += '&nbsp;&nbsp;'+events[i][6];
-		//	theevent += '&nbsp;&nbsp;<b>' + events[i][8] + '</b><br>';
-		//	theevent +=  '&nbsp;&nbsp;'+events[i][5] + '<br>';
-		//	theevent +=  '&nbsp;&nbsp;'+events[i][7] + '<br>';
-		//	theevent += '<br><hr size=2 color=gray>';
-		//	document.forms.eventform.eventlist.value = theevent;
+			timeString = h + timeString.substr(2, 3);
+
+
+			 var chkStr = hours.substring( hours.indexOf(':') + 1 ) ;
+
+				if(chkStr =='00')
+			{
+
+				jj=h + " "+ampm;
+			}
+			else
+			{
+				jj=timeString + " "+ampm;
+
+			}
 			
-		//   theevent1="<tr><td>"+day +'/'+ month + '/'+year+"</td><td>"+events[i][6] +"</td></tr>";
-		  // theevent1+="<tr><td>"+timeString+"</td><td>"+events[i][8] +"</td></tr>"; 
-		   //theevent1+="<tr><td>"+events[i][5]+"</td><td>"+events[i][7] +"</td></tr>"; 
- 		
-		
-		dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
-	                var n = weekday[dayStr.getDay()];
+
+    
+
+	 
+			dayStr=stringToDate(events[i][2]+"/"+events[i][1]+"/"+events[i][3],"dd/MM/yyyy","/");
+            var n = weekday[dayStr.getDay()];
 			var mNam= monthNames[dayStr.getMonth()];
 			
 			
@@ -1074,16 +1081,13 @@ var floater = 0;
 		
 		
 		
-		theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> 	"; 
-		
-		
-		
-	 		
+		theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 11pt;'>"+events[i][5]+" at "+jj+"</div><div id='right' style='background:white;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+"</div></div>"; 
+		 		
 	}
 			
 	else
 	{
-theevent+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][5]+" @"+jj+"</div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
+theevent+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][5]+" at "+jj+"</div><div id='right' style='background:#f1f1f1;font-size: 11pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"</div></div> "	; 	
 	}
 		
 		
