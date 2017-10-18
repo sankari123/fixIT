@@ -23,8 +23,8 @@
     <style type="text/css" media="screen">
 #wrapper {
   display: flex;
-	padding-top: 7px;
-	padding-bottom: 7px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	
 }
 #left {
@@ -35,8 +35,8 @@
 	font-size: 10pt;
 	 display: inline-block;
 	  vertical-align: bottom;
-	padding-top: 4px;
-	 overflow:hidden;
+	padding-top: 5px;
+	 
 	 
 }
 #right {
@@ -45,7 +45,7 @@
 	font-size: 9pt;
 	 display: inline-block;
 	padding-left: 3px;
-	padding-top: 4px;
+	padding-top: 5px;
 }
     h1 { font-size: 20pt; color:Navy; }
     h2 { font-size: 18pt; font-weight:bold; color: #DDD; }
@@ -702,6 +702,7 @@ function init() {
  
 function onDeviceReady(){
 	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	 
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
 	//document.getElementById("defaultOpen").click();
@@ -865,6 +866,7 @@ function changedate(buttonpressed) {
 	ajaxFunction();
 	//alert('optsel'+optSel);	
 	//buttonpressed='return';
+ 
 	if (buttonpressed == "return") { 
 		monthNum = todaysMonth;
 		yearNum = todaysYear;
@@ -1089,12 +1091,12 @@ var floater = 0;
 		
 		 
 	
-		theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 9pt;'>"+events[i][5]+" at "+jj+"<br></div><div id='right' style='background:white;font-size: 9pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br><br></div></div> "	; 	
+		theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white;'>"+events[i][5]+" at "+jj+"<br></div><div id='right' style='background:white;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br><br></div></div> "	; 	
 	}
 			
 	else
 	{
-theevent+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 9pt;'>"+events[i][5]+" at "+jj+"<br></div><div id='right' style='background:#f1f1f1;font-size: 9pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br><br></div></div> "	; 	
+theevent+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;'>"+events[i][5]+" at "+jj+"<br></div><div id='right' style='background:#f1f1f1;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br><br></div></div> "	; 	
 	}
 		
 		
@@ -1134,7 +1136,7 @@ var ajaxResponse;
 var arr_store;
 function ajaxFunction()
 {
-	//window.plugins.spinnerDialog.hide();
+	window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
@@ -1156,7 +1158,8 @@ function ajaxFunction()
 	//	alert(document.getElementById('rest1').value);
 	procVal(document.getElementById('rest1').value);
 	}
-	window.plugins.spinnerDialog.hide();
+	//window.plugins.spinnerDialog.hide();
+	 
 }
 function alertDismissed1()
 	{
@@ -1728,7 +1731,7 @@ function ven_det(v)
 		
 //	theevent+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 9pt;'>"+events[i][5]+" at "+jj+"<br></div><div id='right' style='background:white;font-size: 9pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br><br></div></div> "	; 	
 		
-		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;font-size: 9pt;'>"+n+", " +events[i][2]+" "+mNam+" "+jj+"<br></div><div id='right' style='background:white;font-size: 9pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"<br></div></div> 	"; 
+		ev_lst+="<div id='wrapper' style='background:white'><div id='left' style='background:white;'>"+n+", " +events[i][2]+" "+mNam+" "+jj+"<br></div><div id='right' style='background:white;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br></div></div> 	"; 
 		
 		
 		
@@ -1737,7 +1740,7 @@ function ven_det(v)
 			
 	else
 	{
-ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;font-size: 9pt;'>"+n+", " +events[i][2]+" "+mNam+" "+jj+"<br></div><div id='right' style='background:#f1f1f1;font-size: 9pt;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br>"+events[i][7]+	"<br></div></div> "	; 	
+ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='background:#f1f1f1;'>"+n+", " +events[i][2]+" "+mNam+" "+jj+"<br></div><div id='right' style='background:#f1f1f1;'>"+events[i][6]+" - <b>"+events[i][8]+"</b><br><br>"+events[i][7]+	"<br></div></div> "	; 	
 	}
 		
 		
