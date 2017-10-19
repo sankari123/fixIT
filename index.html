@@ -2087,7 +2087,16 @@ weekday[6] = "Sat";
 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ];
+
+function rateApp()
+{
+LaunchReview.launch(appId, function(){
+    alert("Successfully launched store app");
+},function(err){
+    alert("Error launching store app: " + err);
+});
 	
+}
 </script>
 </head>
  
