@@ -1452,7 +1452,7 @@ function category()
 
 function ajaxCall(n) {
 	 
-	 alert(n.id);
+	 opt1=n;
 	 x=document.getElementById('usrname').value;
 	 y=document.getElementById('usrpwd').value;
 	//  alert(x +'in');
@@ -1468,7 +1468,7 @@ function ajaxCall(n) {
 	 }
 	 else
 	 {
-	 var params = "unam=" + x +"&pwd=" + y; 
+	 var params = "unam=" + x +"&pwd=" + y+"&optionBtn=" + opt1; 
 	 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
 	//  alert(this.readyState);
@@ -2235,7 +2235,7 @@ var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
 		    <tr><td>&nbsp;</td></tr>
 		   <tr><td align=right> <a href="#" onclick='forgot_pass(); ' style='text-decoration: none;color: black;'><font size=1>Forgot Password?</font></a></td></tr>
 		   <tr><td>&nbsp;</td></tr>
-	<tr bgcolor='f4f4f4' height='60px'><td> <button id='display' class="btn34" onclick='ajaxCall(this);'>Login</button>&nbsp;	&nbsp;&nbsp;<button id='register' class="btn34" onclick='ajaxCall(this);'>Register</button></td></tr>
+	<tr height='60px'><td> <button id='display' class="btn34" onclick='ajaxCall(this.id);'>Login</button>&nbsp;	&nbsp;&nbsp;<button id='register' class="btn34" onclick='ajaxCall(this.id);'>Register</button></td></tr>
 		   
 		</table>
 		 
