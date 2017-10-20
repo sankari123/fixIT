@@ -1774,8 +1774,12 @@ ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='back
 	calEvtDetails = calEvtDetails.replace('undefined','');
  document.getElementById('xPort').innerHTML=ev_lst ;
 	
-document.getElementById('map').innerHTML="<img src='https://maps.googleapis.com/maps/api/staticmap?center='+v+'&zoom=19&size=400x200&sensor=true&markers=color:red'/>";
-	 https://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=13&scale=1&size=600x300&maptype=roadmap&format=png&visual_refresh=true
+//document.getElementById('map').innerHTML="<img src='https://maps.googleapis.com/maps/api/staticmap?center='+v+'&zoom=19&size=400x200&sensor=true&markers=color:red'/>";
+	v1=v.replace(/\s/g, '+'); 
+	 alert(v1);
+document.getElementById('map').innerHTML="<img src='https://maps.googleapis.com/maps/api/staticmap?     center='+v1'+'&zoom=13&size=600x300&maptype=roadmap&markers=color:blue&sensor=false'>";
+}
+	 
  }
 //alert('venue '+v);
 //displayArr(v);
