@@ -1774,10 +1774,10 @@ ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='back
 	calEvtDetails = calEvtDetails.replace('undefined','');
  document.getElementById('xPort').innerHTML=ev_lst ;
 	
-
+document.getElementById('map').innerHTML="<img src='https://maps.googleapis.com/maps/api/staticmap?center='+v+'&zoom=19&size=400x200&sensor=true&markers=color:red'/>";
  }
 //alert('venue '+v);
-displayArr(latlong[0],latlong[1]);
+//displayArr(v);
 }
 	  
 function displayArr(x1,y1)
