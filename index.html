@@ -1777,32 +1777,17 @@ ev_lst+="<div id='wrapper' style='background:#f1f1f1'><div id='left' style='back
 //document.getElementById('map').innerHTML="<img src='https://maps.googleapis.com/maps/api/staticmap?center='+v+'&zoom=19&size=400x200&sensor=true&markers=color:red'/>";
 	v1=v.replace(/\s/g, '+'); 
 	 alert(v1);
- var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+	 var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
         +v1+"&zoom=19&size=400x300&sensor=false";
         document.getElementById("map").innerHTML="<img src='"+img_url+"'>";
 
 }
 	 
  }
-//alert('venue '+v);
-//displayArr(v);
+ 
 }
 	  
-function displayArr(x1,y1)
-{
-
-   var infowindow = new google.maps.InfoWindow();
-    var marker, i;
-     icon = 'loc.png';
-	    
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(x1,y1),
-	animation: google.maps.Animation.DROP,
-        icon: new google.maps.MarkerImage(icon),	      
-        map: map
-      });
-       
- } 	
+ 
 	
 function printData()
 {
@@ -2306,7 +2291,7 @@ LaunchReview.launch(appId, function(){
 	<div id='xPort' >     </div>
 
 		<div id='dl_btn1'></div>
-	 <div id='map'>
+	 <div id='map'  width='300px' height='300px'>
   
   </div>
 		 
