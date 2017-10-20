@@ -558,6 +558,7 @@ $(document).ready(function(){
 		  $('#main').hide();
 		  $('#mainMenu').hide();
 		  $('#category').hide();
+			$('#map').hide();
 		 $('#calendar').hide();
 		  $('#dl_btn').hide();
 		  $('#lst_mnu').hide();
@@ -1357,6 +1358,7 @@ function backSt()
 		 $('#xPort').hide();
 		$('#dl_btn').hide();
 		$('#archive').hide();
+		$('#map').hide();
 		//document.getElementById("login").style.visibility="false";
 		//document.getElementById("login").style.display="none";
 		//document.getElementById("category").style.display="block";
@@ -1423,7 +1425,8 @@ function category()
 		document.getElementById("main").style.display="block";
 		document.getElementById("main").style.visibility="true";
 		
-		
+		document.getElementById("map").style.display="none";
+		document.getElementById("map").style.visibility="false";
 		
 		document.getElementById("backmenu").style.display="none";
 		document.getElementById("backmenu").style.visibility="false";
@@ -1643,6 +1646,8 @@ function calClick()
 		document.getElementById("login").style.visibility="false";
 		document.getElementById("xPort").style.display="none";
 		document.getElementById("xPort").style.visibility="false";
+		document.getElementById("map").style.display="none";
+		document.getElementById("map").style.visibility="false";
 		document.getElementById("xPort1").style.display="none";
 		document.getElementById("xPort1").style.visibility="false";
 		document.getElementById("lst_mnu").style.display="none";
