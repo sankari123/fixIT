@@ -1664,7 +1664,19 @@ function ven_det(v)
 //	$("#dl_btn1").slideToggle("slow");
 	k=0;
 	//venue=String(latR[1]);
+	
+	
 	v=v.replace(/_/g, " ");
+	
+	for (var i = 0, len = events.length; i < len; i++) {
+	if(v==events[i][5])
+	{
+	 resl=events[i][9];
+	}
+	}
+	latlong=resl.split('$');
+	alert(latlong[0]);
+	alert(latlong[1]);
 	active_page=2;
 	document.getElementById("xPort").style.display="block";
 	document.getElementById("xPort").style.visibility="true";
