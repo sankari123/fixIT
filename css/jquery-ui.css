@@ -21,7 +21,7 @@
 
 
 .ui-menu {
-	list-style: url("search.png") ;	
+	list-style-image: url("search.png") ;	
 	padding-right: 9px;
 	margin: 0;
 	display: block;
