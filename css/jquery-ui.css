@@ -27,6 +27,8 @@
 	display: block;
 	outline: none;
 	color: gray;
+	height:100%;
+
 }
 .ui-menu .ui-menu {
 	position: absolute;
