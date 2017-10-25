@@ -641,7 +641,7 @@ function monkeyPatchAutocomplete() {
               var t = item.label.replace(re,"<br><span id='arSrch' style='height:100%;color:black;text-align: left;'>" + this.term + "</span>");
               return $( "<li></li>" )
                   .data( "item.autocomplete", item )
-                  .append( "<a>" + t + "</a>" )
+                  .append( "<a><img src='search1.png'>" + t + "</a>" )
                   .appendTo( ul );
           };
       }
