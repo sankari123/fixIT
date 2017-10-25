@@ -708,7 +708,7 @@ function init() {
 
  
 function onDeviceReady(){
-	window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
+	//window.plugins.spinnerDialog.show(null, "Loading Events... Please wait!");
 	 
 	document.getElementById("dl_btn").style.display="none";
 	document.getElementById("dl_btn").style.visibility="false";
@@ -1154,7 +1154,7 @@ var arr_store;
 	   document.getElementById('rest1').value=xhr.responseText;
 	ajaxResponse=xhr.responseText;
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-	    window.plugins.spinnerDialog.hide();
+	  //  window.plugins.spinnerDialog.hide();
 	procVal(ajaxResponse);
     }
 	else
