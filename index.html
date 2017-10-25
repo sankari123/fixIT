@@ -1141,23 +1141,31 @@ return dayofmonth;
 }
 var ajaxResponse;
 var arr_store;
-function ajaxFunction()
+  function ajaxFunction()
 {
-	window.plugins.spinnerDialog.hide();
+	//window.plugins.spinnerDialog.hide();
 	if(connSel=='Y')
 	{	
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'http://www.writeacademy.in/MMF/test.php', true);
-	xhr.onload = function(){
-    	//console.log(xhr);
-		//alert(xhr.responseText);
-	//document.getElementById("ajaxDiv").innerHTML = xhr.responseText;
-	document.getElementById('rest1').value=xhr.responseText;
+	xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       
+	   document.getElementById('rest1').value=xhr.responseText;
 	ajaxResponse=xhr.responseText;
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 	procVal(ajaxResponse);
-	};
-	xhr.send();
+    }
+	else
+	{
+	alert('Network error...Failed to load events. Try again..');
+	}
+	 
+};
+xhr.open("GET", 'http://www.writeacademy.in/MMF/test.php', true);
+xhr.send();
+
+
 	}
 	else
 	{
@@ -1182,6 +1190,7 @@ var venue_arr = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
+	window.plugins.spinnerDialog.hide();
 	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	//document.getElementById('rest1').value=pVar;
