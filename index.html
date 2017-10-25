@@ -1154,6 +1154,7 @@ var arr_store;
 	   document.getElementById('rest1').value=xhr.responseText;
 	ajaxResponse=xhr.responseText;
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+	    window.plugins.spinnerDialog.hide();
 	procVal(ajaxResponse);
     }
 	else
@@ -1171,9 +1172,10 @@ xhr.send();
 	{
 	//	alert('no conn');
 	//	alert(document.getElementById('rest1').value);
+		window.plugins.spinnerDialog.hide();
 	procVal(document.getElementById('rest1').value);
 	}
-	//window.plugins.spinnerDialog.hide();
+	
 	 
 }
 function alertDismissed1()
@@ -1190,7 +1192,7 @@ var venue_arr = new Array();
 function procVal(pVar)
 {
 //multiArr=[];
-	window.plugins.spinnerDialog.hide();
+	 
 	//alert('Ajax Resp'+pVar);
 	locArr = pVar;
 	//document.getElementById('rest1').value=pVar;
