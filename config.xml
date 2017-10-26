@@ -62,6 +62,10 @@
   <icon src="icon_xhdpi.png" gap:platform="android" gap:qualifier="xhdpi"/>
   <icon src="icon.png" gap:platform="blackberry"/>
   <icon src="icon.png" gap:platform="blackberry" gap:state="hover"/>
+  <icon src="icon3.png" gap:platform="android" width="57" height="57" /> 
+  <icon src="icon4.png" gap:platform="android" width="72" height="72" /> 
+  <icon src="icon5.png" gap:platform="android" width="114" height="114" /> 	
+  <icon src="icon6.png" gap:platform="android" width="144" height="144" /> 
 	
   <gap:splash src="splash.png" gap:platform="android" gap:qualifier="port-ldpi"/>
    
