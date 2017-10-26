@@ -272,15 +272,17 @@ button:focus {outline:none;} ::-moz-focus-inner {border:0;}
 		display:none;
 		 
 		}
- #map
-	{
-		
-		display:none;
-		 max-width: 1200px;
-		margin: 0 auto;
-                width: 100% !important;
-		 
-		}
+	    
+	    #map-container{
+    width: 350px;
+}
+
+#map{
+    width: 100%;
+	display:none;
+}
+	    
+
 /* The following is just coloring and faux images */
 
 .dl_btn {
@@ -2326,10 +2328,11 @@ LaunchReview.launch(appId, function(){
 		 
 		
 	</div>
+ <div id='map-container'  width='300px' height='300px'>
  <div id='map'  width='300px' height='300px'>
   
   </div>
-	
+</div>
 	<div class="dl_btn" id='dl_btn' align='center'>
     
  <div style="float: left; font-size: 9pt; width: 33%;"> <button class='btn1'  onclick='calAdd();'><img src="cal1.png"></button>
