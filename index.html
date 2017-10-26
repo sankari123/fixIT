@@ -1910,6 +1910,7 @@ calEvt ='';
 //alert(catSel);
 	var ev_lst='';
 var ev_lst="<br><center><b><font color=red>"+  catSel +"</center></font></b><br>";
+	var heading1=ev_lst;
 for (var i = 0, len = events.length; i < len; i++)
 {
 	cat1=events[i][6];
@@ -1972,7 +1973,10 @@ for (var i = 0, len = events.length; i < len; i++)
 	ev_lst = ev_lst.replace('undefined','');
 	calEvt = calEvt.replace('undefined','');
 	calEvtDetails = calEvtDetails.replace('undefined','');
-	alert(ev_lst);
+	if(heading1==ev_lst)
+	{
+		ev_lst='No events to show ...';
+	}
 	document.getElementById('xPort').innerHTML=ev_lst;
 	 
  
